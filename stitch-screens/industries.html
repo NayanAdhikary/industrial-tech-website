@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Industries | Industrial Tech Collective</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<!-- Using Geist font via CDN for modern typography -->
+<link href="https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-tertiary": "#4e2600",
+                        "surface-dim": "#131313",
+                        "surface": "#131313",
+                        "border-muted": "rgba(255, 255, 255, 0.1)",
+                        "on-tertiary-container": "#763d00",
+                        "surface-deep": "#0E0E0E",
+                        "on-error": "#690005",
+                        "surface-elevated": "#131313",
+                        "surface-container": "#201f1f",
+                        "surface-container-high": "#2a2a2a",
+                        "on-error-container": "#ffdad6",
+                        "on-primary-fixed": "#00201c",
+                        "primary": "#64eedc",
+                        "primary-container": "#40d1c0",
+                        "terminal-cyan": "#40D1C0",
+                        "glow-accent": "rgba(64, 209, 192, 0.25)",
+                        "tertiary-fixed-dim": "#ffb77f",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-tertiary-fixed": "#2f1500",
+                        "on-surface-variant": "#bbcac6",
+                        "on-secondary-fixed-variant": "#474646",
+                        "secondary-fixed": "#e5e2e1",
+                        "inverse-surface": "#e5e2e1",
+                        "surface-tint": "#4edbca",
+                        "surface-container-highest": "#353534",
+                        "surface-variant": "#353534",
+                        "surface-container-low": "#1c1b1b",
+                        "error": "#ffb4ab",
+                        "on-secondary": "#313030",
+                        "secondary-container": "#4a4949",
+                        "on-tertiary-fixed-variant": "#6f3800",
+                        "tertiary": "#ffcfac",
+                        "primary-fixed-dim": "#4edbca",
+                        "surface-bright": "#3a3939",
+                        "on-background": "#e5e2e1",
+                        "outline-variant": "#3c4947",
+                        "error-container": "#93000a",
+                        "secondary": "#c8c6c5",
+                        "on-primary": "#003732",
+                        "tertiary-fixed": "#ffdcc4",
+                        "primary-fixed": "#6ff8e6",
+                        "surface-container-lowest": "#0e0e0e",
+                        "tertiary-container": "#ffa963",
+                        "inverse-on-surface": "#313030",
+                        "on-primary-container": "#00564d",
+                        "on-primary-fixed-variant": "#005048",
+                        "background": "#131313",
+                        "on-surface": "#e5e2e1",
+                        "inverse-primary": "#006a60",
+                        "on-secondary-container": "#bab8b7",
+                        "outline": "#859490"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "grid-gutter": "24px",
+                        "section-padding": "120px",
+                        "safe-area": "32px",
+                        "grid-margin": "24px"
+                    },
+                    "fontFamily": {
+                        "label-mono-sm": ["JetBrains Mono"],
+                        "headline-lg": ["Geist"],
+                        "headline-lg-mobile": ["Geist"],
+                        "label-mono-md": ["JetBrains Mono"],
+                        "headline-md": ["Geist"],
+                        "body-md": ["Geist"],
+                        "body-lg": ["Geist"],
+                        "display-xl": ["Geist"]
+                    },
+                    "fontSize": {
+                        "label-mono-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "label-mono-md": ["14px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "headline-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-xl": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-card {
+            background: rgba(19, 19, 19, 0.7);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glass-card:hover {
+            border-color: #64eedc;
+            box-shadow: 0 0 20px rgba(100, 238, 220, 0.15);
+            transform: translateY(-4px);
+        }
+        .teal-glow {
+            filter: drop-shadow(0 0 8px rgba(100, 238, 220, 0.4));
+        }
+        .primary-button {
+            background-color: #64eedc;
+            color: #000;
+            transition: all 0.3s ease;
+        }
+        .primary-button:hover {
+            box-shadow: 0 0 15px #64eedc;
+            transform: scale(1.02);
+        }
+        .grid-overlay {
+            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .crosshair::before, .crosshair::after {
+            content: '+';
+            position: absolute;
+            font-family: 'JetBrains Mono';
+            font-size: 10px;
+            color: rgba(100, 238, 220, 0.5);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md selection:bg-primary/30">
+<!-- Global Background Shader -->
+<!-- STITCH_SHADER_START:ANIMATION_10 class="fixed inset-0 w-full h-full -z-10 opacity-40" -->
+<div class="fixed inset-0 w-full h-full -z-10 opacity-40" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_10" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_10');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+varying vec2 v_texCoord;
+uniform float u_time;
+uniform vec2 u_resolution;
+
+void main() {
+    vec2 uv = v_texCoord;
+    
+    // Industrial dark base
+    vec3 baseColor = vec3(0.02, 0.03, 0.03);
+    
+    // Subtle scanning grid
+    vec2 grid_uv = uv * 40.0;
+    float grid = (step(0.98, fract(grid_uv.x)) + step(0.98, fract(grid_uv.y)));
+    
+    // Flowing teal glows/aurora
+    float pulse = sin(u_time * 0.2) * 0.5 + 0.5;
+    float glow = sin(uv.y * 3.0 + u_time * 0.4) * cos(uv.x * 2.0 - u_time * 0.3);
+    vec3 tealGlow = vec3(0.25, 0.82, 0.75) * max(0.0, glow) * 0.15;
+    
+    // Moving scanlines
+    float scanline = sin(uv.y * 800.0 + u_time * 5.0) * 0.015;
+    
+    // Vignette for depth
+    float vignette = smoothstep(1.2, 0.4, length(uv - 0.5));
+    
+    vec3 finalColor = baseColor + tealGlow + (grid * 0.03) + scanline;
+    finalColor *= vignette;
+
+    gl_FragColor = vec4(finalColor, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_10 -->
+<!-- Top Bar -->
+<nav class="fixed top-0 w-full z-50 bg-surface/70 backdrop-blur-xl border-b border-border-muted shadow-sm">
+<div class="flex justify-between items-center h-16 px-grid-margin max-w-7xl mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-on-surface uppercase tracking-tighter">
+                Industrial Tech Collective
+            </div>
+<div class="hidden md:flex gap-8">
+<a class="font-label-mono-md text-label-mono-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Systems</a>
+<a class="font-label-mono-md text-label-mono-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Solutions</a>
+<a class="font-label-mono-md text-label-mono-md text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Intelligence</a>
+<a class="font-label-mono-md text-label-mono-md text-primary border-b-2 border-primary pb-1" href="#">Security</a>
+</div>
+<button class="bg-primary text-on-primary px-4 py-2 font-label-mono-md text-label-mono-md rounded-lg scale-95 active:scale-90 transition-transform">
+                Contact Us
+            </button>
+</div>
+</nav>
+<main class="relative pt-16">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex flex-col items-center justify-center text-center px-grid-margin overflow-hidden">
+<div class="absolute inset-0 z-0 pointer-events-none">
+<!-- STITCH_THREEJS_START:ANIMATION_9 class="w-full h-full" -->
+<div class="w-full h-full" style="display:block;">
+<script src="https://ajax.googleapis.com/ajax/libs/threejs/r125/three.min.js"></script>
+<div id="threejs-container-ANIMATION_9" style="width:100%;height:100%"></div>
+<script>
+(function() {
+  const container = document.getElementById('threejs-container-ANIMATION_9');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  (function() {
+  const container = document.getElementById('threejs-container-ANIMATION_3');
+  const devicePixelRatio = window.devicePixelRatio || 1;
+  const width = container.clientWidth || window.innerWidth;
+  const height = container.clientHeight || window.innerHeight;
+
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+
+  renderer.setSize(width, height);
+  renderer.setPixelRatio(devicePixelRatio);
+  container.appendChild(renderer.domElement);
+
+  // Group to hold all parts for unified rotation
+  const group = new THREE.Group();
+  scene.add(group);
+
+  // Core Industrial Wireframe (Icosahedron)
+  const geometry = new THREE.IcosahedronGeometry(2.5, 1);
+  const wireframe = new THREE.WireframeGeometry(geometry);
+  const material = new THREE.LineBasicMaterial({ 
+    color: 0x40D1C0, 
+    transparent: true, 
+    opacity: 0.8,
+    linewidth: 2
+  });
+  const core = new THREE.LineSegments(wireframe, material);
+  group.add(core);
+
+  // Outer Technical Rings
+  const ringGeo1 = new THREE.TorusGeometry(3.5, 0.015, 16, 100);
+  const ringMat = new THREE.MeshBasicMaterial({ color: 0x40D1C0, transparent: true, opacity: 0.3 });
+  const ring1 = new THREE.Mesh(ringGeo1, ringMat);
+  group.add(ring1);
+
+  const ring2 = ring1.clone();
+  ring2.rotation.x = Math.PI / 2;
+  group.add(ring2);
+
+  const ring3 = ring1.clone();
+  ring3.rotation.y = Math.PI / 2;
+  group.add(ring3);
+
+  camera.position.z = 8;
+
+  // Mouse Tracking
+  let targetX = 0;
+  let targetY = 0;
+  window.addEventListener('mousemove', (event) => {
+    targetX = (event.clientX / window.innerWidth - 0.5) * 0.8;
+    targetY = (event.clientY / window.innerHeight - 0.5) * 0.8;
+  });
+
+  function animate() {
+    requestAnimationFrame(animate);
+    
+    // Constant slow rotation
+    group.rotation.y += 0.003;
+    group.rotation.x += 0.001;
+
+    // React to mouse
+    group.rotation.y += (targetX - group.rotation.y) * 0.05;
+    group.rotation.x += (targetY - group.rotation.x) * 0.05;
+    
+    // Inner core pulsing
+    const scale = 1 + Math.sin(Date.now() * 0.002) * 0.05;
+    core.scale.set(scale, scale, scale);
+    
+    renderer.render(scene, camera);
+  }
+
+  window.addEventListener('resize', () => {
+    const w = container.clientWidth || window.innerWidth;
+    const h = container.clientHeight || window.innerHeight;
+    camera.aspect = w / h;
+    camera.updateProjectionMatrix();
+    renderer.setSize(w, h);
+  });
+
+  animate();
+})();
+})();
+</script>
+</div>
+<!-- STITCH_THREEJS_END:ANIMATION_9 -->
+</div>
+<div class="relative z-10 max-w-4xl space-y-6">
+<div class="inline-block px-3 py-1 border border-primary/30 bg-primary/5 rounded-full">
+<span class="font-label-mono-sm text-label-mono-sm text-primary uppercase tracking-widest">Industry 4.0 Standard</span>
+</div>
+<h1 class="font-display-xl text-display-xl text-white tracking-tighter leading-none">
+                    Precision. Intelligence. <span class="text-primary">Security.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl mx-auto">
+                    The future of industrial technology. We architect resilient, hyper-connected infrastructures that drive the next wave of industrial evolution through data-driven precision.
+                </p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center pt-8">
+<button class="primary-button font-headline-md px-8 py-4 rounded-lg flex items-center gap-2">
+                        Initialize System
+                        <span class="material-symbols-outlined text-lg">terminal</span>
+</button>
+<button class="border border-primary text-primary font-label-mono-md px-8 py-4 rounded-lg hover:bg-primary/5 transition-all">
+                        View Specifications
+                    </button>
+</div>
+</div>
+<!-- Atmospheric Grid -->
+<div class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent z-10"></div>
+</section>
+<!-- Industries Bento Grid -->
+<section class="py-section-padding px-grid-margin max-w-7xl mx-auto relative">
+<div class="grid-overlay absolute inset-0 opacity-20 pointer-events-none"></div>
+<div class="relative z-10 mb-16 text-left">
+<h2 class="font-headline-lg text-headline-lg text-white mb-4">Core Verticals</h2>
+<div class="w-24 h-1 bg-primary mb-4"></div>
+<p class="font-label-mono-md text-label-mono-md text-on-surface-variant uppercase tracking-widest">Domain Expertise</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-grid-gutter auto-rows-[280px]">
+<!-- Retail -->
+<div class="md:col-span-8 glass-card p-base flex flex-col justify-end relative group overflow-hidden">
+<div class="absolute top-4 right-4 crosshair"></div>
+<div class="absolute top-8 left-8 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-8xl" style="font-variation-settings: 'FILL' 1;">shopping_cart</span>
+</div>
+<div class="relative z-10">
+<h3 class="font-headline-md text-headline-md text-white mb-2">Retail</h3>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">
+                            AI in e-commerce and retail industry is creating a brand new dimension for the fashion and e-commerce industry with a much better shopping experience for customers.
+                        </p>
+</div>
+</div>
+<!-- Security -->
+<div class="md:col-span-4 glass-card p-base flex flex-col justify-between relative group">
+<span class="material-symbols-outlined text-primary text-4xl teal-glow" data-weight="fill">security</span>
+<div>
+<h3 class="font-headline-md text-headline-md text-white mb-2">Security-Surveillance</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Integration of high-tech video equipments into surveillance systems with rigorous training data sets.
+                        </p>
+</div>
+</div>
+<!-- Real Estate -->
+<div class="md:col-span-4 glass-card p-base flex flex-col justify-between relative group">
+<span class="material-symbols-outlined text-primary text-4xl teal-glow">apartment</span>
+<div>
+<h3 class="font-headline-md text-headline-md text-white mb-2">Real Estate</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Annotation for AI training data helping developers design and develop landscapes and structural frameworks.
+                        </p>
+</div>
+</div>
+<!-- Automotive -->
+<div class="md:col-span-4 glass-card p-base flex flex-col justify-between relative group overflow-hidden">
+<div class="absolute inset-0 bg-primary/5 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<span class="material-symbols-outlined text-primary text-4xl teal-glow">directions_car</span>
+<div>
+<h3 class="font-headline-md text-headline-md text-white mb-2">Automotive</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Wide range of image annotation techniques creating training data for autonomous driving vehicles.
+                        </p>
+</div>
+</div>
+<!-- Sports -->
+<div class="md:col-span-4 glass-card p-base flex flex-col justify-between relative group">
+<span class="material-symbols-outlined text-primary text-4xl teal-glow">analytics</span>
+<div>
+<h3 class="font-headline-md text-headline-md text-white mb-2">Sports</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            Image annotation services for AI in sports analytics and cutting-edge game development.
+                        </p>
+</div>
+</div>
+<!-- Agriculture -->
+<div class="md:col-span-6 glass-card p-base flex flex-col justify-between relative group">
+<div class="absolute -right-4 -top-4 opacity-5">
+<span class="material-symbols-outlined text-[160px]">eco</span>
+</div>
+<span class="material-symbols-outlined text-primary text-4xl teal-glow">agriculture</span>
+<div>
+<h3 class="font-headline-md text-headline-md text-white mb-2">Agriculture</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">
+                            AI implementation from ground level crop health monitoring to geo-sensing for enhanced productivity.
+                        </p>
+</div>
+</div>
+<!-- Medical & Fashion -->
+<div class="md:col-span-6 grid grid-cols-2 gap-grid-gutter">
+<div class="glass-card p-base flex flex-col items-center justify-center text-center group">
+<span class="material-symbols-outlined text-primary text-5xl mb-4 group-hover:scale-110 transition-transform">medical_services</span>
+<h3 class="font-headline-md text-headline-md text-white">Medical</h3>
+</div>
+<div class="glass-card p-base flex flex-col items-center justify-center text-center group">
+<span class="material-symbols-outlined text-primary text-5xl mb-4 group-hover:scale-110 transition-transform">apparel</span>
+<h3 class="font-headline-md text-headline-md text-white">Fashion</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- Security Section -->
+<section class="py-section-padding bg-surface-deep relative border-y border-border-muted overflow-hidden">
+<div class="absolute inset-0 opacity-10 pointer-events-none overflow-hidden">
+<div class="text-[200px] font-bold text-white/10 rotate-[-10deg] absolute -left-20 -bottom-20 uppercase tracking-tighter">SECURE</div>
+</div>
+<div class="max-w-7xl mx-auto px-grid-margin grid grid-cols-1 lg:grid-cols-2 gap-16 items-center relative z-10">
+<div class="space-y-8">
+<div class="inline-flex items-center gap-4 px-4 py-2 bg-primary/10 border border-primary/20 rounded-lg">
+<span class="material-symbols-outlined text-primary" data-weight="fill">verified_user</span>
+<span class="font-label-mono-md text-label-mono-md text-primary font-bold">ISO 27001:2013 CERTIFIED</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-white">Uncompromising Data Standards</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">
+                        Security is not a feature; it is our foundation. Industrial Tech Collective operates under strict adherence to international information security management standards, ensuring your critical infrastructure data is protected by the most advanced protocols.
+                    </p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4">
+<div class="space-y-1">
+<p class="font-label-mono-sm text-label-mono-sm text-primary uppercase">Encryption</p>
+<p class="font-headline-md text-white font-bold">AES-256</p>
+<p class="font-label-mono-sm text-on-surface-variant">Military Grade</p>
+</div>
+<div class="space-y-1">
+<p class="font-label-mono-sm text-label-mono-sm text-primary uppercase">Compliance</p>
+<p class="font-headline-md text-white font-bold">SOC 2</p>
+<p class="font-label-mono-sm text-on-surface-variant">Type II Certified</p>
+</div>
+<div class="space-y-1">
+<p class="font-label-mono-sm text-label-mono-sm text-primary uppercase">Reliability</p>
+<p class="font-headline-md text-white font-bold">99.999%</p>
+<p class="font-label-mono-sm text-on-surface-variant">Uptime SLA</p>
+</div>
+</div>
+</div>
+<div class="relative">
+<div class="glass-card aspect-square max-w-md mx-auto p-12 flex flex-col items-center justify-center text-center space-y-6 rounded-full border-2 border-primary/20">
+<div class="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center teal-glow border border-primary/30">
+<span class="material-symbols-outlined text-primary text-5xl" style="font-variation-settings: 'FILL' 1;">lock_person</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-white">Vaulted Intelligence</h3>
+<p class="font-body-md text-on-surface-variant">Dedicated hardware security modules and multi-factor biometric authentication layers.</p>
+<div class="flex gap-2">
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse [animation-delay:200ms]"></div>
+<div class="w-2 h-2 rounded-full bg-primary animate-pulse [animation-delay:400ms]"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Specs / Footer CTA -->
+<section class="py-section-padding text-center px-grid-margin relative">
+<div class="max-w-3xl mx-auto space-y-8">
+<h2 class="font-headline-lg text-headline-lg text-white">Ready for Integration?</h2>
+<p class="font-body-lg text-on-surface-variant">Deploy our proprietary technology stack across your enterprise ecosystem and unlock unprecedented operational clarity.</p>
+<div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+<a class="primary-button font-headline-md px-10 py-5 rounded-lg" href="#">Get a Free Demo</a>
+<span class="text-on-surface-variant font-label-mono-md">OR</span>
+<a class="text-white hover:text-primary underline font-label-mono-md transition-colors" href="#">Review Documentation</a>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer Component -->
+<footer class="bg-surface-container-lowest border-t border-border-muted">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-grid-gutter py-base px-grid-margin max-w-7xl mx-auto">
+<div class="space-y-4">
+<div class="font-headline-md text-headline-md text-on-surface font-bold uppercase tracking-tighter">Industrial Tech Collective</div>
+<p class="font-label-mono-sm text-label-mono-sm text-on-surface-variant">© 2024 Industrial Tech Collective. ISO 27001 Certified.</p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors">public</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors">share</span>
+<span class="material-symbols-outlined text-on-surface-variant hover:text-primary cursor-pointer transition-colors">monitoring</span>
+</div>
+</div>
+<div class="flex flex-wrap md:justify-end gap-x-8 gap-y-2 items-end">
+<a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-primary underline transition-opacity opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-primary underline transition-opacity opacity-80 hover:opacity-100" href="#">Compliance</a>
+<a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-primary underline transition-opacity opacity-80 hover:opacity-100" href="#">SOC2 Report</a>
+<a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-primary underline transition-opacity opacity-80 hover:opacity-100" href="#">Security</a>
+<a class="font-label-mono-sm text-label-mono-sm text-on-surface-variant hover:text-primary underline transition-opacity opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+</div>
+</div>
+</footer>
+<script>
+        // Smooth hover micro-interactions
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                // Potential for adding coordinate based lighting effects
+            });
+        });
+
+        // Simple parallax effect for shader background on scroll
+        window.addEventListener('scroll', () => {
+            const shader = document.querySelector('webgl-shader');
+            const scrolled = window.pageYOffset;
+            if (shader) {
+                shader.style.transform = `translateY(${scrolled * 0.1}px)`;
+            }
+        });
+    </script>
+</body></html>
