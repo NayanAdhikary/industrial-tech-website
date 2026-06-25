@@ -18,6 +18,7 @@ export default function Industries() {
           <h1 className="font-display-xl text-white">
             Precision. Intelligence. <span className="text-primary">Security.</span>
           </h1>
+          <a href="https://github.com/NayanAdhikary/industrial-tech-website" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', textDecoration: 'underline', marginTop: '8px' }}>View source on GitHub</a>
           <p className="font-body-lg text-on-surface-variant">
             The future of industrial technology. We architect resilient, hyper-connected infrastructures that drive the next wave of industrial evolution through data-driven precision.
           </p>
