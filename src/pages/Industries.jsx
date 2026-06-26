@@ -1,5 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import HeroCore3D from '../components/HeroCore3D';
+import retailImg from '../assets/retail_detection.png';
+import securityImg from '../assets/security_detection.png';
+import realEstateImg from '../assets/real_estate_segmentation.png';
+import automotiveImg from '../assets/automotive_detection.png';
+import sportsImg from '../assets/sports_keypoints.png';
+import agricultureImg from '../assets/agriculture_detection.png';
+import medicalImg from '../assets/medical_segmentation.png';
+import fashionImg from '../assets/fashion_segmentation.png';
 
 export default function Industries() {
   return (
@@ -45,61 +54,148 @@ export default function Industries() {
           <p className="font-label-mono-md text-on-surface-variant uppercase tracking-widest">Domain Expertise</p>
         </div>
 
-        <div className="grid md:grid-cols-12 gap-6" style={{ gridAutoRows: '280px' }}>
+        <div className="grid md:grid-cols-3 gap-8">
           {/* Retail */}
-          <div className="md:col-span-8 glass-card flex flex-col justify-end relative" style={{ overflow: 'hidden' }}>
-            <div style={{ position: 'absolute', top: '32px', left: '32px', opacity: 0.1 }}>
-              <span className="material-symbols-outlined" style={{ fontSize: '96px', fontVariationSettings: "'FILL' 1" }}>shopping_cart</span>
+          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
+            <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
+              <img src={retailImg} alt="Retail Object Detection" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
             </div>
-            <div style={{ position: 'relative', zIndex: 10 }}>
-              <h3 className="font-headline-md text-white mb-2">Retail</h3>
-              <p className="font-body-md text-on-surface-variant" style={{ maxWidth: '400px' }}>
-                AI in e-commerce and retail industry is creating a brand new dimension for the fashion and e-commerce industry with a much better shopping experience for customers.
-              </p>
+            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '260px' }}>
+              <div className="flex flex-col items-center">
+                <h3 className="font-headline-md text-white mb-4">Retail</h3>
+                <p className="font-body-md text-on-surface-variant">
+                  AI in e-commerce and retail industry is creating a brand new dimension for the fashion and e-commerce industry with a much better shopping experience for customers.
+                </p>
+              </div>
+              <Link to="/product-categorization" className="card-read-more-btn">
+                Read More
+              </Link>
             </div>
           </div>
 
           {/* Security */}
-          <div className="md:col-span-4 glass-card flex flex-col justify-between relative">
-            <span className="material-symbols-outlined text-primary text-4xl teal-glow" style={{ fontVariationSettings: "'FILL' 1", fontSize: '36px' }}>security</span>
-            <div>
-              <h3 className="font-headline-md text-white mb-2">Security-Surveillance</h3>
-              <p className="font-body-md text-on-surface-variant">
-                Integration of high-tech video equipments into surveillance systems with rigorous training data sets.
-              </p>
+          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
+            <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
+              <img src={securityImg} alt="Security Surveillance Weapon Detection" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
+            </div>
+            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '260px' }}>
+              <div className="flex flex-col items-center">
+                <h3 className="font-headline-md text-white mb-4">Security-Surveillance</h3>
+                <p className="font-body-md text-on-surface-variant">
+                  To create such high-tech video equipments and integrate them into the surveillance system a training data set is required.
+                </p>
+              </div>
+              <Link to="/computer-vision" className="card-read-more-btn">
+                Read More
+              </Link>
             </div>
           </div>
 
           {/* Real Estate */}
-          <div className="md:col-span-4 glass-card flex flex-col justify-between relative">
-            <span className="material-symbols-outlined text-primary text-4xl teal-glow" style={{ fontSize: '36px' }}>apartment</span>
-            <div>
-              <h3 className="font-headline-md text-white mb-2">Real Estate</h3>
-              <p className="font-body-md text-on-surface-variant">
-                Annotation for AI training data helping developers design and develop landscapes and structural frameworks.
-              </p>
+          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
+            <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
+              <img src={realEstateImg} alt="Real Estate Building Segmentation" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
+            </div>
+            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '260px' }}>
+              <div className="flex flex-col items-center">
+                <h3 className="font-headline-md text-white mb-4">Real Estate</h3>
+                <p className="font-body-md text-on-surface-variant">
+                  Annotation for AI Training Data in Real Estate & Construction and help the real estate developers to design and develop the building landscape
+                </p>
+              </div>
+              <Link to="/data-annotation" className="card-read-more-btn">
+                Read More
+              </Link>
             </div>
           </div>
 
           {/* Automotive */}
-          <div className="md:col-span-4 glass-card flex flex-col justify-between relative">
-            <span className="material-symbols-outlined text-primary text-4xl teal-glow" style={{ fontSize: '36px' }}>directions_car</span>
-            <div>
-              <h3 className="font-headline-md text-white mb-2">Automotive</h3>
-              <p className="font-body-md text-on-surface-variant">
-                Wide range of image annotation techniques creating training data for autonomous driving vehicles.
-              </p>
+          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
+            <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
+              <img src={automotiveImg} alt="Automotive Detection" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
+            </div>
+            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '260px' }}>
+              <div className="flex flex-col items-center">
+                <h3 className="font-headline-md text-white mb-4">Automotive</h3>
+                <p className="font-body-md text-on-surface-variant">
+                  A wide range of image annotation techniques is used to create training data for autonomous driving vehicles.
+                </p>
+              </div>
+              <Link to="/computer-vision" className="card-read-more-btn">
+                Read More
+              </Link>
             </div>
           </div>
 
           {/* Sports */}
-          <div className="md:col-span-4 glass-card flex flex-col justify-between relative">
-            <span className="material-symbols-outlined text-primary text-4xl teal-glow" style={{ fontSize: '36px' }}>analytics</span>
-            <div>
-              <h3 className="font-headline-md text-white mb-2">Sports</h3>
-              <p className="font-body-md text-on-surface-variant">
-                Image annotation services for AI in sports analytics and cutting-edge game development.
-              </p>
+          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
+            <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
+              <img src={sportsImg} alt="Sports Skeleton Keypoints" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
+            </div>
+            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '260px' }}>
+              <div className="flex flex-col items-center">
+                <h3 className="font-headline-md text-white mb-4">Sports</h3>
+                <p className="font-body-md text-on-surface-variant">
+                  Image Annotation Services for AI in Sports Analytics & Game Development
+                </p>
+              </div>
+              <Link to="/computer-vision" className="card-read-more-btn">
+                Read More
+              </Link>
+            </div>
+          </div>
+
+          {/* Agriculture */}
+          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
+            <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
+              <img src={agricultureImg} alt="Agriculture Apples Detection" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
+            </div>
+            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '260px' }}>
+              <div className="flex flex-col items-center">
+                <h3 className="font-headline-md text-white mb-4">Agriculture</h3>
+                <p className="font-body-md text-on-surface-variant">
+                  The use of AI in agriculture reached ground level, from crop health monitoring to geo-sensing for better productivity.
+                </p>
+              </div>
+              <Link to="/data-annotation" className="card-read-more-btn">
+                Read More
+              </Link>
+            </div>
+          </div>
+
+          {/* Medical */}
+          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
+            <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
+              <img src={medicalImg} alt="Medical X-Ray Segmentation" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
+            </div>
+            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '260px' }}>
+              <div className="flex flex-col items-center">
+                <h3 className="font-headline-md text-white mb-4">Medical</h3>
+                <p className="font-body-md text-on-surface-variant">
+                  Precision AI annotation for medical imaging diagnostics, helping healthcare providers classify and segment CT scans, X-rays, and MRI findings.
+                </p>
+              </div>
+              <Link to="/computer-vision" className="card-read-more-btn">
+                Read More
+              </Link>
+            </div>
+          </div>
+
+          {/* Fashion */}
+          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
+            <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
+              <img src={fashionImg} alt="Fashion Segmentation" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
+            </div>
+            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '260px' }}>
+              <div className="flex flex-col items-center">
+                <h3 className="font-headline-md text-white mb-4">Fashion</h3>
+                <p className="font-body-md text-on-surface-variant">
+                  AI image segmentation and tagging services for fashion inventory categorization, digital catalogs, and recommendation engines.
+                </p>
+              </div>
+              <Link to="/product-categorization" className="card-read-more-btn">
+                Read More
+              </Link>
             </div>
           </div>
         </div>
