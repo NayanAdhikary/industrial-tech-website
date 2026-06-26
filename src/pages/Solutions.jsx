@@ -1,5 +1,5 @@
 import React from 'react';
-import ThreeJsNeuralNetwork from '../components/ThreeJsNeuralNetwork';
+import HeroCore3D from '../components/HeroCore3D';
 
 export default function Solutions() {
   return (
@@ -32,7 +32,7 @@ export default function Solutions() {
           
           {/* Neural Network 3D Scene */}
           <div style={{ position: 'relative', height: '500px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <ThreeJsNeuralNetwork />
+            <HeroCore3D />
             <div className="glass-card" style={{ position: 'absolute', bottom: '16px', right: '16px', padding: '16px', borderRadius: '8px', zIndex: 20 }}>
               <div className="font-label-mono-sm text-primary mb-2">SYSTEM_CORE_LOAD</div>
               <div style={{ width: '128px', height: '4px', backgroundColor: 'rgba(255, 255, 255, 0.1)', borderRadius: '9999px', overflow: 'hidden' }}>

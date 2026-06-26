@@ -1,10 +1,12 @@
 import React from 'react';
+import HeroCore3D from '../components/HeroCore3D';
 
 export default function ComputerVision() {
   return (
     <div style={{ position: 'relative' }}>
       {/* Hero Section */}
       <section className="relative flex flex-col items-center justify-center overflow-hidden" style={{ minHeight: '921px', borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+        <HeroCore3D />
         <div className="container relative z-10 grid md:grid-cols-2 gap-12 items-center" style={{ width: '100%' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '4px 12px', backgroundColor: 'rgba(100, 238, 220, 0.1)', border: '1px solid rgba(100, 238, 220, 0.2)', borderRadius: '9999px', alignSelf: 'flex-start' }}>

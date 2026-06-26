@@ -5,6 +5,10 @@ import Footer from './components/Footer';
 import Industries from './pages/Industries';
 import Solutions from './pages/Solutions';
 import ComputerVision from './pages/ComputerVision';
+import NLP from './pages/NLP';
+import ContentModeration from './pages/ContentModeration';
+import ProductCategorization from './pages/ProductCategorization';
+import DataAnnotation from './pages/DataAnnotation';
 import BackgroundShader from './components/BackgroundShader';
 
 function App() {
@@ -18,6 +22,10 @@ function App() {
             <Route path="/" element={<Industries />} />
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/computer-vision" element={<ComputerVision />} />
+            <Route path="/nlp" element={<NLP />} />
+            <Route path="/content-moderation" element={<ContentModeration />} />
+            <Route path="/product-categorization" element={<ProductCategorization />} />
+            <Route path="/data-annotation" element={<DataAnnotation />} />
             <Route path="*" element={<Industries />} />
           </Routes>
         </main>

@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Project custom excludes
+stitch-screens/
+convert.cjs
+

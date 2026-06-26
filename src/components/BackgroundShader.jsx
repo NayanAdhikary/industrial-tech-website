@@ -45,22 +45,30 @@ void main() {
     // Industrial dark base
     vec3 baseColor = vec3(0.02, 0.03, 0.03);
     
-    // Subtle scanning grid
-    vec2 grid_uv = uv * 40.0;
+    // Technical grid shifts density with scroll
+    float gridDensity = 40.0 + sin(u_scroll * 0.001) * 10.0;
+    vec2 grid_uv = uv * gridDensity;
     float grid = (step(0.98, fract(grid_uv.x)) + step(0.98, fract(grid_uv.y)));
     
-    // Flowing teal glows/aurora
+    // Flowing teal glows/aurora (speed increases with scroll)
+    float scrollFactor = u_scroll * 0.005;
+    float timeWithScroll = u_time * 0.4 + scrollFactor;
     float pulse = sin(u_time * 0.2) * 0.5 + 0.5;
-    float glow = sin(uv.y * 3.0 + u_time * 0.4) * cos(uv.x * 2.0 - u_time * 0.3);
+    float glow = sin(uv.y * 3.0 + timeWithScroll) * cos(uv.x * 2.0 - timeWithScroll * 0.8);
     vec3 tealGlow = vec3(0.25, 0.82, 0.75) * max(0.0, glow) * 0.15;
     
+    // Subtle scanning pulse tracks progress
+    float scanPulseY = mod(u_scroll * 0.001, 1.0);
+    float scanPulse = smoothstep(0.05, 0.0, abs(uv.y - (1.0 - scanPulseY)));
+    vec3 scanPulseColor = vec3(0.0, 1.0, 0.8) * scanPulse * 0.1;
+
     // Moving scanlines
     float scanline = sin(uv.y * 800.0 + u_time * 5.0) * 0.015;
     
     // Vignette for depth
     float vignette = smoothstep(1.2, 0.4, length(uv - 0.5));
     
-    vec3 finalColor = baseColor + tealGlow + (grid * 0.03) + scanline;
+    vec3 finalColor = baseColor + tealGlow + (grid * 0.03) + scanline + scanPulseColor;
     finalColor *= vignette;
 
     gl_FragColor = vec4(finalColor, 1.0);
@@ -89,8 +97,10 @@ void main() {
     const uTime = gl.getUniformLocation(prog, 'u_time');
     const uRes = gl.getUniformLocation(prog, 'u_resolution');
     const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+    const uScroll = gl.getUniformLocation(prog, 'u_scroll');
 
     let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+    let scrollY = 0;
     
     const handleMouseMove = (event) => {
       const rect = canvas.getBoundingClientRect();
@@ -101,7 +111,13 @@ void main() {
         mouse.y = ny * canvas.height;
       }
     };
+    
+    const handleScroll = () => {
+      scrollY = window.scrollY;
+    };
+
     window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('scroll', handleScroll);
 
     let animationId;
     function render(t) {
@@ -110,6 +126,7 @@ void main() {
       if (uTime) gl.uniform1f(uTime, t * 0.001);
       if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
       if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+      if (uScroll) gl.uniform1f(uScroll, scrollY);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
       animationId = requestAnimationFrame(render);
     }
@@ -117,6 +134,7 @@ void main() {
 
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('scroll', handleScroll);
       if (resizeObserver) resizeObserver.disconnect();
       cancelAnimationFrame(animationId);
     };

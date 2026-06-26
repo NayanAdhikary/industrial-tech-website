@@ -1,5 +1,5 @@
 import React from 'react';
-import ThreeJsHero from '../components/ThreeJsHero';
+import HeroCore3D from '../components/HeroCore3D';
 
 export default function Industries() {
   return (
@@ -8,7 +8,7 @@ export default function Industries() {
       <section style={{ minHeight: '900px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.4, background: 'radial-gradient(circle at center, rgba(64, 209, 192, 0.15) 0%, transparent 60%)' }}></div>
         <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
-          <ThreeJsHero />
+          <HeroCore3D />
         </div>
         
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '800px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
