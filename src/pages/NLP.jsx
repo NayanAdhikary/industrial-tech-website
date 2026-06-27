@@ -1,144 +1,105 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import HeroCore3D from '../components/HeroCore3D';
+import nlpImg from '../assets/nlp_services.png';
+
+const subtopicData = {
+  'sentiment-analysis': { label: "Sentiment Analysis", title: "Linguistic Sentiment Valence Analysis", desc: "Deciphering emotional valence, urgency, and technical skepticism within industrial communication logs and maintenance documents.", Confidence: "99.82%", speed: "24.5k tokens/ms" },
+  'entity-extraction': { label: "Entity Extraction", title: "Entity Recognition & Extraction", desc: "Identifying and tagging critical industrial assets, model parameters, part serials, and locations from unstructured technical documentation.", Confidence: "99.15%", speed: "19.8k tokens/ms" },
+  'technical-taxonomy': { label: "Technical Taxonomy", title: "Regulatory Document Taxonomy", desc: "Automatic classification of standard documentation, regulatory papers, and engineering assets under strict ISO compliance standards.", Confidence: "98.90%", speed: "22.1k tokens/ms" },
+  'machine-translation': { label: "Machine Translation", title: "Machine Technical Translation", desc: "High-precision, domain-specific translation of complex technical logs and maintenance guidelines across global deployment nodes.", Confidence: "99.05%", speed: "21.0k tokens/ms" }
+};
 
 export default function NLP() {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const targetSubtopic = queryParams.get('subtopic');
+
+  const cardRefs = {
+    'sentiment-analysis': React.useRef(null),
+    'entity-extraction': React.useRef(null),
+    'technical-taxonomy': React.useRef(null),
+    'machine-translation': React.useRef(null)
+  };
+
+  useEffect(() => {
+    if (targetSubtopic && cardRefs[targetSubtopic]) {
+      const timer = setTimeout(() => {
+        cardRefs[targetSubtopic].current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [targetSubtopic]);
+
   return (
     <div className="relative min-h-screen">
       <HeroCore3D />
       <div className="relative z-10">
 
+        <main className="pt-32 pb-24 px-margin-edge max-w-container-max mx-auto relative">
+          <section className="relative min-h-[300px] flex flex-col items-center justify-center text-center mb-16 overflow-hidden rounded-xl border border-border-low glass-panel p-12">
+            <div className="relative z-10 space-y-6">
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <span className="px-3 py-1 bg-primary/10 border border-primary/20 text-primary font-data-mono text-label-xs uppercase tracking-widest">Protocol: NLP-09</span>
+                <span className="px-3 py-1 bg-surface-container-high border border-border-low text-on-surface-variant font-data-mono text-label-xs">v4.2.0-STABLE</span>
+              </div>
+              <h1 className="font-display-lg text-display-lg md:text-display-lg text-surface-tint leading-none teal-text-glow" style={{ color: 'var(--color-primary)' }}>
+                NLP Services
+              </h1>
+              <p className="max-w-2xl mx-auto text-on-surface-variant font-body-md">
+                High-fidelity natural language analysis. Deciphering unstructured text into deterministic data streams.
+              </p>
+            </div>
+          </section>
 
-
-<main className="pt-32 pb-24 px-margin-edge max-w-container-max mx-auto relative">
-
-<div className="fixed inset-0 pointer-events-none z-[-1] opacity-40">
-
-</div>
-
-<section className="relative min-h-[614px] flex flex-col items-center justify-center text-center mb-24 overflow-hidden rounded-xl border border-border-low glass-panel p-12">
-<div className="absolute inset-0 z-0">
-
-</div>
-<div className="relative z-10 space-y-6">
-<div className="flex items-center justify-center gap-2 mb-4">
-<span className="px-3 py-1 bg-primary/10 border border-primary/20 text-primary font-data-mono text-label-xs uppercase tracking-widest">Protocol: NLP-09</span>
-<span className="px-3 py-1 bg-surface-container-high border border-border-low text-on-surface-variant font-data-mono text-label-xs">v4.2.0-STABLE</span>
-</div>
-<h1 className="font-display-lg text-display-lg md:text-display-lg text-surface-tint leading-none teal-text-glow">
-                    Neural Linguistics.<br />Engineered.
-                </h1>
-<p className="max-w-2xl mx-auto text-on-surface-variant font-body-md">
-                    Deciphering the industrial complex through high-fidelity linguistic analysis. We transform unstructured text into deterministic data streams for autonomous decision-making.
-                </p>
-<div className="flex items-center justify-center gap-4 pt-8">
-<button className="bg-primary text-on-primary-container px-8 py-3 font-bold border border-primary hover:bg-transparent hover:text-primary transition-all duration-300">
-                        Initiate Deep Dive
+          {/* Subtopics Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {Object.keys(subtopicData).map((key) => {
+              const current = subtopicData[key];
+              const isHighlighted = targetSubtopic === key;
+              return (
+                <div
+                  key={key}
+                  ref={cardRefs[key]}
+                  className="glass-card flex flex-col relative"
+                  style={{
+                    overflow: 'hidden',
+                    padding: 0,
+                    border: isHighlighted ? '2px solid var(--color-primary)' : '1px solid var(--color-border-muted)',
+                    boxShadow: isHighlighted ? '0 0 25px rgba(100, 238, 220, 0.35)' : 'none',
+                    transition: 'all 0.5s ease'
+                  }}
+                >
+                  <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
+                    <img src={nlpImg} alt={current.title} className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
+                  </div>
+                  <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '280px' }}>
+                    <div className="flex flex-col items-center w-full">
+                      <div className="font-data-mono text-label-xs text-primary/60 mb-2">SYSTEM_NODE: {key.toUpperCase()}</div>
+                      <h3 className="font-headline-md text-white mb-4">{current.label}</h3>
+                      <p className="font-body-md text-on-surface-variant mb-6">
+                        {current.desc}
+                      </p>
+                      <div className="grid grid-cols-2 gap-4 w-full mt-auto">
+                        <div className="p-3 bg-black/40 border border-border-low font-data-mono text-[11px] text-left">
+                          <span className="text-on-surface-variant">Conf: </span>
+                          <span className="text-primary">{current.Confidence}</span>
+                        </div>
+                        <div className="p-3 bg-black/40 border border-border-low font-data-mono text-[11px] text-left">
+                          <span className="text-on-surface-variant">Speed: </span>
+                          <span className="text-white">{current.speed.split(' ')[0]}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <button className="card-read-more-btn" style={{ cursor: 'pointer', marginTop: '24px' }}>
+                      Launch Spec
                     </button>
-<button className="border border-primary/40 text-primary px-8 py-3 font-bold hover:bg-primary/5 transition-all duration-300">
-                        View API Schema
-                    </button>
-</div>
-</div>
-</section>
-
-<div className="bento-grid">
-
-<div className="md:col-span-8 glass-panel p-8 rounded-lg relative overflow-hidden group">
-<div className="flex justify-between items-start mb-12">
-<div>
-<h3 className="font-headline-lg text-headline-lg text-primary mb-2">Sentiment Analysis</h3>
-<div className="font-data-mono text-label-xs text-on-surface-variant uppercase tracking-tighter">Module: Linguistic Valence</div>
-</div>
-<span className="material-symbols-outlined text-primary text-4xl" style={{"fontVariationSettings":"'FILL' 1"}}>insights</span>
-</div>
-<div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-<div className="space-y-4">
-<p className="text-on-surface leading-relaxed border-l-2 border-primary/30 pl-4 py-1 italic">
-                            "Sentence quality and sentiment understanding are no longer probabilistic. Our engines extract precise emotional vectors from technical documentation."
-                        </p>
-<div className="p-4 bg-black/40 border border-border-low font-data-mono text-label-xs">
-<div className="flex justify-between mb-2">
-<span>Confidence Score:</span>
-<span className="text-primary">99.82%</span>
-</div>
-<div className="w-full bg-surface-container-high h-1">
-<div className="bg-primary h-full" style={{"width":"99.82%"}}></div>
-</div>
-</div>
-</div>
-<div className="relative h-48 overflow-hidden border border-border-low bg-surface-container-low rounded-lg">
-<img className="w-full h-full object-cover grayscale opacity-50 group-hover:grayscale-0 transition-all duration-700" data-alt="A macro visualization of data particles forming a human profile silhouette in a dark industrial space. The particles are teal and white, swirling like a digital nebula. The background features a subtle grid pattern and technical telemetry overlays. Dark minimalism aesthetic with high-fidelity glass textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgph4iCM_gV_69pS-R3w9htksBQB4rIJEBu0wOK3wDEq_T3hW2uIVPBhX4U5ZLq1mmwBbNlul9aToAUQDciv5QU3XtO5YN17zvDOoK2_1GqZoiIGk-96QDxi6z9_S7io_2wJm0SYaL0r1kpAzcesOR9fWnEh2wu22hsPURi2Z0xPW59-U2X_Ush9dMJGgqBEsn0c1xYhoBJe6pXo7DJPCP7a0J5D28jSjEo5jneH6-ttixLP7bnLZ1WmWPst2LfQlqxeGEABsCHfaC" />
-<div className="absolute bottom-2 left-2 px-2 py-1 bg-black/80 font-data-mono text-[10px] text-surface-tint">REAL_TIME_VALENCE_PLOT</div>
-</div>
-</div>
-</div>
-
-<div className="md:col-span-4 glass-panel p-8 rounded-lg flex flex-col justify-between border-primary/20">
-<div className="space-y-6">
-<div className="flex items-center gap-3">
-<div className="w-2 h-2 bg-primary rounded-full animate-pulse shadow-[0_0_8px_#64eedc]"></div>
-<span className="font-data-mono text-label-xs text-on-surface-variant uppercase">Node Efficiency</span>
-</div>
-<div className="space-y-2">
-<div className="font-display-lg text-4xl text-primary font-data-mono">24.5k</div>
-<div className="font-data-mono text-label-xs text-on-surface-variant">Tokens / Millisecond</div>
-</div>
-<div className="space-y-2">
-<div className="font-display-lg text-4xl text-on-surface font-data-mono">1.2ms</div>
-<div className="font-data-mono text-label-xs text-on-surface-variant">Inference Latency</div>
-</div>
-</div>
-<div className="mt-8 pt-8 border-t border-border-low">
-<button className="w-full py-2 border border-border-low hover:border-primary/50 text-label-xs font-data-mono transition-colors">OPTIMIZE_LOAD</button>
-</div>
-</div>
-
-<div className="md:col-span-4 glass-panel p-8 rounded-lg">
-<div className="flex items-center gap-4 mb-6">
-<span className="material-symbols-outlined text-primary">category</span>
-<h3 className="font-headline-lg text-2xl text-on-surface">Categorization</h3>
-</div>
-<p className="text-on-surface-variant font-body-md mb-8">
-                    Document classification via hierarchical attention networks. Precision engineered for ISO regulatory compliance and technical patent filing taxonomies.
-                </p>
-<ul className="space-y-3 font-data-mono text-label-xs">
-<li className="flex items-center gap-2 text-on-surface">
-<span className="text-primary">01.</span> Semantic Clustering
-                    </li>
-<li className="flex items-center gap-2 text-on-surface">
-<span className="text-primary">02.</span> Multilingual Mapping
-                    </li>
-<li className="flex items-center gap-2 text-on-surface">
-<span className="text-primary">03.</span> Dynamic Taxonomy
-                    </li>
-</ul>
-</div>
-
-<div className="md:col-span-8 glass-panel p-8 rounded-lg overflow-hidden relative">
-<div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -mr-32 -mt-32"></div>
-<h3 className="font-headline-lg text-headline-lg text-primary mb-6">Entity Recognition</h3>
-<div className="space-y-6 relative z-10">
-<p className="text-on-surface font-body-md max-w-xl">
-                        Our NER engine identifies critical assets, locations, and technical parameters within vast industrial datasets. Identifying the needles in the technological haystack.
-                    </p>
-<div className="flex flex-wrap gap-3">
-<span className="px-4 py-2 border border-primary/20 bg-primary/5 rounded-full text-primary font-data-mono text-label-xs">
-                            ORG: Industrial Tech Collective
-                        </span>
-<span className="px-4 py-2 border border-border-low bg-surface-container rounded-full text-on-surface-variant font-data-mono text-label-xs">
-                            LOC: Global Standardized Nodes
-                        </span>
-<span className="px-4 py-2 border border-error/30 bg-error/5 rounded-full text-error font-data-mono text-label-xs">
-                            DATE: 2024-Q4_DEPLOYMENT
-                        </span>
-<span className="px-4 py-2 border border-primary/20 bg-primary/5 rounded-full text-primary font-data-mono text-label-xs">
-                            TECH: NLP_ENGINE_v4
-                        </span>
-</div>
-</div>
-</div>
-</div>
-</main>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </main>
 
 <section className="bg-surface-container-low border-y border-border-low py-20 mt-24">
 <div className="max-w-container-max mx-auto px-margin-edge">

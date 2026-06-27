@@ -1,72 +1,95 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import HeroCore3D from '../components/HeroCore3D';
+import categorizationImg from '../assets/product_categorization.png';
+
+const subtopicData = {
+  'industrial-taxonomy': { label: "Industrial Taxonomy", title: "UNSPSC & eCl@ss Industrial Taxonomy", desc: "Standardized hierarchical mapping of complex industrial assets and engineering materials, fully optimized for multi-tenant enterprise resource planning.", Metric: "TAXONOMY_LVL: 04", value: "eCl@ss Core" },
+  'attribute-annotation': { label: "Attribute Annotation", title: "Automated Attribute Annotation Engine", desc: "Dynamic injection and validation of component tolerances, operational voltages, metadata specifications, and material parameters.", Metric: "VALIDATION: 480V", value: "±0.001mm Tolerance" },
+  'hierarchy-mapping': { label: "Hierarchy Mapping", title: "Asset Hierarchy Mapping Node", desc: "Structuring relationships and dependencies of assembly lines, robotic arms, and complex machinery into a unified registry sync.", Metric: "MESH_NODE: robotic_arm", value: "Online Sync" },
+  'data-schema-sync': { label: "Data Schema Sync", title: "Supply Chain Schema Sync", desc: "Continuous database synchronization with enterprise systems (ERP, PLM) to sync catalog metadata and digital twin environments.", Metric: "EXPORT_TARGET: ERP/PLM", value: "Instant Handshake" }
+};
 
 export default function ProductCategorization() {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const targetSubtopic = queryParams.get('subtopic');
+
+  const cardRefs = {
+    'industrial-taxonomy': React.useRef(null),
+    'attribute-annotation': React.useRef(null),
+    'hierarchy-mapping': React.useRef(null),
+    'data-schema-sync': React.useRef(null)
+  };
+
+  useEffect(() => {
+    if (targetSubtopic && cardRefs[targetSubtopic]) {
+      const timer = setTimeout(() => {
+        cardRefs[targetSubtopic].current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [targetSubtopic]);
+
   return (
     <div className="relative min-h-screen">
       <HeroCore3D />
       <div className="relative z-10">
 
+        <main className="py-24 px-margin-edge max-w-container-max mx-auto space-y-gutter">
+          
+          {/* Header & Subtopic Tab Selector */}
+          <div className="glass-panel p-8 text-center" style={{ marginBottom: '32px' }}>
+            <span className="px-3 py-1 bg-primary/10 border border-primary/20 text-primary font-data-mono text-label-xs uppercase tracking-widest" style={{ display: 'inline-block', marginBottom: '16px' }}>Protocol: CAT-04</span>
+            <h1 className="font-display-lg text-display-lg text-white mb-4" style={{ fontSize: '42px', color: 'var(--color-primary)' }}>Product Categorization</h1>
+            <p className="font-body-md text-on-surface-variant max-w-xl mx-auto mb-8">
+              Hierarchical taxonomy mapping and attribute annotation for global enterprise asset catalogs.
+            </p>
+          </div>
 
-
-
-<main className="py-24 px-margin-edge max-w-container-max mx-auto space-y-gutter">
-<div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-
-<section className="glass-panel p-8 flex flex-col justify-between teal-glow-hover transition-all">
-<div>
-<div className="font-label-xs text-label-xs text-primary mb-6">METRIC 01 // TAXONOMY</div>
-<h2 className="font-headline-lg text-headline-lg text-white mb-4">Core Hierarchy</h2>
-<p className="font-body-md text-body-md text-on-surface-variant mb-8">
-                        Hierarchical mapping of industrial assets based on UNSPSC and eCl@ss standards. Multi-tenant support for proprietary schemas.
-                    </p>
-</div>
-<div className="space-y-4">
-<div className="bg-surface-container-low p-4 border-l-2 border-primary">
-<div className="font-data-mono text-label-xs text-primary">LVL_01: ASSEMBLY_LINES</div>
-<div className="font-data-mono text-label-xs text-on-surface-variant">LVL_02: ROBOTIC_ARMS</div>
-</div>
-<div className="flex items-center justify-between font-data-mono text-[10px] text-on-surface-variant/50">
-<span>NODE_SYNC_STATUS</span>
-<span className="text-primary">ONLINE</span>
-</div>
-</div>
-</section>
-
-<section className="glass-panel p-8 flex flex-col justify-between teal-glow-hover transition-all">
-<div>
-<div className="font-label-xs text-label-xs text-primary mb-6">METRIC 02 // ATTRIBUTE</div>
-<h2 className="font-headline-lg text-headline-lg text-white mb-4">Metadata Specs</h2>
-<p className="font-body-md text-body-md text-on-surface-variant mb-8">
-                        Dynamic attribute injection based on category logic. Validation of technical tolerances and material specifications.
-                    </p>
-</div>
-<div className="grid grid-cols-2 gap-2">
-<div className="bg-surface-container-low p-3 text-center border border-border-low">
-<div className="font-label-xs text-primary">VOLTAGE</div>
-<div className="font-data-mono text-white">480V AC</div>
-</div>
-<div className="bg-surface-container-low p-3 text-center border border-border-low">
-<div className="font-label-xs text-primary">TOLERANCE</div>
-<div className="font-data-mono text-white">±0.001MM</div>
-</div>
-</div>
-</section>
-
-<section className="glass-panel p-8 flex flex-col justify-between teal-glow-hover transition-all">
-<div>
-<div className="font-label-xs text-label-xs text-primary mb-6">METRIC 03 // OBJECT</div>
-<h2 className="font-headline-lg text-headline-lg text-white mb-4">Object Logic</h2>
-<p className="font-body-md text-body-md text-on-surface-variant mb-8">
-                        Final object instantiation using classified attributes. Direct export to ERP, PLM, and digital twin environments.
-                    </p>
-</div>
-<div className="relative h-24 bg-surface-container-low border border-border-low flex items-center justify-center">
-<span className="material-symbols-outlined text-4xl text-primary/40 animate-pulse">deployed_code</span>
-<div className="absolute bottom-2 right-2 font-data-mono text-[10px] text-primary">HASH: 8F2A...9C</div>
-</div>
-</section>
-</div>
+          {/* Subtopics Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {Object.keys(subtopicData).map((key) => {
+              const current = subtopicData[key];
+              const isHighlighted = targetSubtopic === key;
+              return (
+                <div
+                  key={key}
+                  ref={cardRefs[key]}
+                  className="glass-card flex flex-col relative"
+                  style={{
+                    overflow: 'hidden',
+                    padding: 0,
+                    border: isHighlighted ? '2px solid var(--color-primary)' : '1px solid var(--color-border-muted)',
+                    boxShadow: isHighlighted ? '0 0 25px rgba(100, 238, 220, 0.35)' : 'none',
+                    transition: 'all 0.5s ease'
+                  }}
+                >
+                  <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
+                    <img src={categorizationImg} alt={current.title} className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
+                  </div>
+                  <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '280px' }}>
+                    <div className="flex flex-col items-center w-full">
+                      <div className="font-data-mono text-label-xs text-primary/60 mb-2">SYSTEM_NODE: {key.toUpperCase()}</div>
+                      <h3 className="font-headline-md text-white mb-4">{current.label}</h3>
+                      <p className="font-body-md text-on-surface-variant mb-6">
+                        {current.desc}
+                      </p>
+                      <div className="space-y-4 w-full mt-auto text-left">
+                        <div className="bg-surface-container-low p-4 border-l-2 border-primary font-data-mono text-label-xs">
+                          <div className="text-primary">{current.Metric}</div>
+                          <div className="text-on-surface-variant">{current.value}</div>
+                        </div>
+                      </div>
+                    </div>
+                    <button className="card-read-more-btn" style={{ cursor: 'pointer', marginTop: '24px' }}>
+                      Launch Spec
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
 
 <section className="mt-gutter">
 <div className="glass-panel overflow-hidden">

@@ -1,7 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import HeroCore3D from '../components/HeroCore3D';
+import moderationImg from '../assets/content_moderation.png';
+
+const subtopicData = {
+  'policy-enforcement': { label: "Policy Enforcement", title: "Automated Policy Enforcement Protocol", desc: "Implementing real-time automated safety guidelines and filtering protocols across decentralized content distribution nodes.", Accuracy: "99.8%", Latency: "1.2ms" },
+  'text-image-safety': { label: "Text & Image Safety", title: "Visual & Textual Safety Engine", desc: "Sub-millisecond deep-learning validation and categorization of media and textual feeds to guarantee complete regulatory safety.", Accuracy: "99.9%", Latency: "0.9ms" },
+  'risk-vector-scrubbing': { label: "Risk Vector Scrubbing", title: "Risk Vector Identification & Scrubbing", desc: "Isolating and neutralizing malicious, anomalous, or sensitive data packets before database injection layers.", Accuracy: "99.7%", Latency: "1.5ms" },
+  'metadata-audit': { label: "Metadata Audit", title: "Continuous Metadata Audit Pipeline", desc: "Performing automated compliance scans and structural validation audits across incoming stream pipelines.", Accuracy: "99.9%", Latency: "1.0ms" }
+};
 
 export default function ContentModeration() {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const targetSubtopic = queryParams.get('subtopic');
+
+  const cardRefs = {
+    'policy-enforcement': React.useRef(null),
+    'text-image-safety': React.useRef(null),
+    'risk-vector-scrubbing': React.useRef(null),
+    'metadata-audit': React.useRef(null)
+  };
+
+  useEffect(() => {
+    if (targetSubtopic && cardRefs[targetSubtopic]) {
+      const timer = setTimeout(() => {
+        cardRefs[targetSubtopic].current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 500);
+      return () => clearTimeout(timer);
+    }
+  }, [targetSubtopic]);
+
   return (
     <div className="relative min-h-screen">
       <HeroCore3D />
@@ -16,12 +45,11 @@ export default function ContentModeration() {
                 <span className="inline-block w-2 h-2 bg-primary animate-pulse rounded-full"></span>
                 <span className="font-label-xs text-label-xs text-primary uppercase tracking-widest">System Status: Active</span>
               </div>
-              <h1 className="font-display-xl text-display-xl text-on-surface mb-6">
-                Global Safeguards.<br />
-                <span className="text-primary">Autonomous.</span>
+              <h1 className="font-display-xl text-display-xl text-on-surface mb-6" style={{ color: 'var(--color-primary)' }}>
+                Content Moderation
               </h1>
               <p className="font-body-md text-body-md text-on-surface-variant max-w-xl mb-8 mx-auto">
-                Implementing sub-millisecond content moderation across decentralized nodes. Our industrial-grade AI protocols ensure technical integrity by scrubbing high-risk data vectors in real-time.
+                Sub-millisecond safety auditing and risk mitigation across decentralized data streams.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <div className="glass-card px-4 py-2 flex items-center gap-3">
@@ -38,24 +66,55 @@ export default function ContentModeration() {
                 </div>
               </div>
             </div>
+          </section>
 
-            <div className="relative max-w-md w-full mx-auto">
-              <div className="group">
-                <div className="absolute -inset-4 bg-primary/10 blur-3xl rounded-full opacity-30 group-hover:opacity-50 transition-opacity"></div>
-                <div className="relative glass-card rounded-xl overflow-hidden aspect-square flex items-center justify-center border-2 border-primary/20 p-0">
-                  <div className="scanning-line"></div>
-                  <img className="w-full h-full object-cover grayscale brightness-75 contrast-125 opacity-80" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZOpTxtFKU4n8QvUx-gXMoFSbqaMn6iNdi2_Hf0MblgJJ-euJ_RlIjy6vbygBwsTs2xCCuAp_67amxps3K5jD4bmWMwDHqslCEGfgqeYS4OmhtYpqAB6SaSrqbuJcnIkk6L3KH61OcLfMsoPmBs1z938dzMy43q1_3DV16KwntC940dTVrOPjxxXFKtL2uvDSxCTqBIZDO_ccvBR8MSANL5LNAnd_zgP7GOynEObWXYhq6311jU0Fv1_TEQTxPY2xUQR6-gufkqCVU" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 to-transparent"></div>
-
-                  <div className="absolute top-4 left-4 font-data-mono text-label-xs text-primary/60">SCAN_ENGINE_v4.02</div>
-                  <div className="absolute bottom-4 right-4 flex flex-col items-end">
-                    <div className="font-data-mono text-headline-lg text-primary">99.8%</div>
-                    <div className="font-label-xs text-label-xs text-on-surface-variant uppercase">Accuracy Rating</div>
+          {/* Subtopics Cards Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+            {Object.keys(subtopicData).map((key) => {
+              const current = subtopicData[key];
+              const isHighlighted = targetSubtopic === key;
+              return (
+                <div
+                  key={key}
+                  ref={cardRefs[key]}
+                  className="glass-card flex flex-col relative"
+                  style={{
+                    overflow: 'hidden',
+                    padding: 0,
+                    border: isHighlighted ? '2px solid var(--color-primary)' : '1px solid var(--color-border-muted)',
+                    boxShadow: isHighlighted ? '0 0 25px rgba(100, 238, 220, 0.35)' : 'none',
+                    transition: 'all 0.5s ease'
+                  }}
+                >
+                  <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
+                    <img src={moderationImg} alt={current.title} className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
+                  </div>
+                  <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '280px' }}>
+                    <div className="flex flex-col items-center w-full">
+                      <div className="font-data-mono text-label-xs text-primary/60 mb-2">SYSTEM_NODE: {key.toUpperCase()}</div>
+                      <h3 className="font-headline-md text-white mb-4">{current.label}</h3>
+                      <p className="font-body-md text-on-surface-variant mb-6">
+                        {current.desc}
+                      </p>
+                      <div className="grid grid-cols-2 gap-4 w-full mt-auto">
+                        <div className="p-3 bg-black/40 border border-border-low font-data-mono text-[11px] text-left">
+                          <span className="text-on-surface-variant">Accuracy: </span>
+                          <span className="text-primary">{current.Accuracy}</span>
+                        </div>
+                        <div className="p-3 bg-black/40 border border-border-low font-data-mono text-[11px] text-left">
+                          <span className="text-on-surface-variant">Latency: </span>
+                          <span className="text-white">{current.Latency}</span>
+                        </div>
+                      </div>
+                    </div>
+                    <button className="card-read-more-btn" style={{ cursor: 'pointer', marginTop: '24px' }}>
+                      Launch Spec
+                    </button>
                   </div>
                 </div>
-              </div>
-            </div>
-          </section>
+              );
+            })}
+          </div>
 
           {/* Features Grid Section */}
           <section className="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-20">

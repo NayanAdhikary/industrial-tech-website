@@ -1,14 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import HeroCore3D from '../components/HeroCore3D';
-import retailImg from '../assets/retail_detection.png';
-import securityImg from '../assets/security_detection.png';
-import realEstateImg from '../assets/real_estate_segmentation.png';
-import automotiveImg from '../assets/automotive_detection.png';
-import sportsImg from '../assets/sports_keypoints.png';
-import agricultureImg from '../assets/agriculture_detection.png';
-import medicalImg from '../assets/medical_segmentation.png';
-import fashionImg from '../assets/fashion_segmentation.png';
+import cvImg from '../assets/automotive_detection.png';
+import nlpImg from '../assets/nlp_services.png';
+import moderationImg from '../assets/content_moderation.png';
+import categorizationImg from '../assets/product_categorization.png';
 
 export default function Industries() {
   return (
@@ -54,149 +50,165 @@ export default function Industries() {
           <p className="font-label-mono-md text-on-surface-variant uppercase tracking-widest">Domain Expertise</p>
         </div>
 
+        <div className="grid md:grid-cols-2 gap-8">
+          {/* Computer Vision Systems */}
+          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
+            <div className="card-image-container" style={{ width: '100%', height: '260px' }}>
+              <img src={cvImg} alt="Computer Vision Systems" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
+            </div>
+            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '280px' }}>
+              <div className="flex flex-col items-center w-full">
+                <h3 className="font-headline-md text-white mb-4">Computer Vision Systems</h3>
+                <p className="font-body-md text-on-surface-variant mb-6">
+                  Precision labeling and semantic understanding for autonomous and visual intelligence. We translate raw pixel data into actionable spatial knowledge.
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'center', marginBottom: '8px' }}>
+                  {[
+                    { label: 'Retail', slug: 'retail' },
+                    { label: 'Security', slug: 'security' },
+                    { label: 'Real Estate', slug: 'real-estate' },
+                    { label: 'Automotive', slug: 'automotive' },
+                    { label: 'Sports', slug: 'sports' },
+                    { label: 'Agriculture', slug: 'agriculture' },
+                    { label: 'Medical', slug: 'medical' },
+                    { label: 'Fashion', slug: 'fashion' }
+                  ].map((opt) => (
+                    <Link key={opt.slug} to={`/computer-vision?subtopic=${opt.slug}`} style={{ padding: '4px 10px', fontSize: '11px', border: '1px solid rgba(100, 238, 220, 0.2)', backgroundColor: 'rgba(100, 238, 220, 0.05)', borderRadius: '4px', color: 'var(--color-primary)', textDecoration: 'none', transition: 'all 0.2s ease' }} className="font-label-mono-sm subtopic-link-tag">
+                      {opt.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              <Link to="/computer-vision" className="card-read-more-btn">
+                Launch System spec
+              </Link>
+            </div>
+          </div>
+
+          {/* NLP Services */}
+          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
+            <div className="card-image-container" style={{ width: '100%', height: '260px' }}>
+              <img src={nlpImg} alt="NLP Services" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
+            </div>
+            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '280px' }}>
+              <div className="flex flex-col items-center w-full">
+                <h3 className="font-headline-md text-white mb-4">NLP Services</h3>
+                <p className="font-body-md text-on-surface-variant mb-6">
+                  Deciphering the industrial complex through high-fidelity linguistic analysis. We transform unstructured text into deterministic data streams for autonomous decision-making.
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'center', marginBottom: '8px' }}>
+                  {[
+                    { label: 'Sentiment Analysis', slug: 'sentiment-analysis' },
+                    { label: 'Entity Extraction', slug: 'entity-extraction' },
+                    { label: 'Technical Taxonomy', slug: 'technical-taxonomy' },
+                    { label: 'Machine Translation', slug: 'machine-translation' }
+                  ].map((opt) => (
+                    <Link key={opt.slug} to={`/nlp?subtopic=${opt.slug}`} style={{ padding: '4px 10px', fontSize: '11px', border: '1px solid rgba(100, 238, 220, 0.2)', backgroundColor: 'rgba(100, 238, 220, 0.05)', borderRadius: '4px', color: 'var(--color-primary)', textDecoration: 'none', transition: 'all 0.2s ease' }} className="font-label-mono-sm subtopic-link-tag">
+                      {opt.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              <Link to="/nlp" className="card-read-more-btn">
+                Launch System spec
+              </Link>
+            </div>
+          </div>
+
+          {/* Content Moderation */}
+          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
+            <div className="card-image-container" style={{ width: '100%', height: '260px' }}>
+              <img src={moderationImg} alt="Content Moderation" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
+            </div>
+            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '280px' }}>
+              <div className="flex flex-col items-center w-full">
+                <h3 className="font-headline-md text-white mb-4">Content Moderation</h3>
+                <p className="font-body-md text-on-surface-variant mb-6">
+                  Implementing sub-millisecond content moderation and safety auditing across decentralized nodes. Our protocols ensure technical integrity in real-time.
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'center', marginBottom: '8px' }}>
+                  {[
+                    { label: 'Policy Enforcement', slug: 'policy-enforcement' },
+                    { label: 'Text & Image Safety', slug: 'text-image-safety' },
+                    { label: 'Risk Vector Scrubbing', slug: 'risk-vector-scrubbing' },
+                    { label: 'Metadata Audit', slug: 'metadata-audit' }
+                  ].map((opt) => (
+                    <Link key={opt.slug} to={`/content-moderation?subtopic=${opt.slug}`} style={{ padding: '4px 10px', fontSize: '11px', border: '1px solid rgba(100, 238, 220, 0.2)', backgroundColor: 'rgba(100, 238, 220, 0.05)', borderRadius: '4px', color: 'var(--color-primary)', textDecoration: 'none', transition: 'all 0.2s ease' }} className="font-label-mono-sm subtopic-link-tag">
+                      {opt.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              <Link to="/content-moderation" className="card-read-more-btn">
+                Launch System spec
+              </Link>
+            </div>
+          </div>
+
+          {/* Product Categorization */}
+          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
+            <div className="card-image-container" style={{ width: '100%', height: '260px' }}>
+              <img src={categorizationImg} alt="Product Categorization" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
+            </div>
+            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '280px' }}>
+              <div className="flex flex-col items-center w-full">
+                <h3 className="font-headline-md text-white mb-4">Product Categorization</h3>
+                <p className="font-body-md text-on-surface-variant mb-6">
+                  Hierarchical mapping and attribute injection based on industrial classification standards. Structured data cataloging for global supply chain assets.
+                </p>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', justifyContent: 'center', marginBottom: '8px' }}>
+                  {[
+                    { label: 'Industrial Taxonomy', slug: 'industrial-taxonomy' },
+                    { label: 'Attribute Annotation', slug: 'attribute-annotation' },
+                    { label: 'Hierarchy Mapping', slug: 'hierarchy-mapping' },
+                    { label: 'Data Schema Sync', slug: 'data-schema-sync' }
+                  ].map((opt) => (
+                    <Link key={opt.slug} to={`/product-categorization?subtopic=${opt.slug}`} style={{ padding: '4px 10px', fontSize: '11px', border: '1px solid rgba(100, 238, 220, 0.2)', backgroundColor: 'rgba(100, 238, 220, 0.05)', borderRadius: '4px', color: 'var(--color-primary)', textDecoration: 'none', transition: 'all 0.2s ease' }} className="font-label-mono-sm subtopic-link-tag">
+                      {opt.label}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+              <Link to="/product-categorization" className="card-read-more-btn">
+                Launch System spec
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Industrial Tech Collective Section */}
+      <section className="py-section-padding container" style={{ borderTop: '1px solid var(--color-border-muted)' }}>
+        <div style={{ marginBottom: '64px', textAlign: 'center' }}>
+          <p className="font-label-mono-md text-primary uppercase tracking-widest" style={{ marginBottom: '16px' }}>Core Advantages</p>
+          <h2 className="font-headline-lg text-white mb-4">Why Industrial Tech Collective</h2>
+          <div style={{ width: '96px', height: '4px', backgroundColor: 'var(--color-primary)', margin: '0 auto 16px' }}></div>
+          <p className="font-body-lg text-on-surface-variant max-w-2xl mx-auto">
+            Architecting the future of secure, high-precision industrial metadata orchestration.
+          </p>
+        </div>
+
         <div className="grid md:grid-cols-3 gap-8">
-          {/* Retail */}
-          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
-            <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
-              <img src={retailImg} alt="Retail Object Detection" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
-            </div>
-            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '260px' }}>
-              <div className="flex flex-col items-center">
-                <h3 className="font-headline-md text-white mb-4">Retail</h3>
-                <p className="font-body-md text-on-surface-variant">
-                  AI in e-commerce and retail industry is creating a brand new dimension for the fashion and e-commerce industry with a much better shopping experience for customers.
-                </p>
-              </div>
-              <Link to="/product-categorization" className="card-read-more-btn">
-                Read More
-              </Link>
-            </div>
+          <div className="glass-card p-8 flex flex-col gap-4">
+            <span className="material-symbols-outlined text-primary text-4xl" style={{ fontVariationSettings: "'FILL' 1" }}>gshield</span>
+            <h3 className="font-headline-md text-white">01 // Defense-Grade Security</h3>
+            <p className="font-body-md text-on-surface-variant">
+              Full compliance with ISO 27001 and SOC 2 Type II auditing standards. End-to-end AES-256 data encryption guarantees maximum structural security.
+            </p>
           </div>
-
-          {/* Security */}
-          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
-            <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
-              <img src={securityImg} alt="Security Surveillance Weapon Detection" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
-            </div>
-            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '260px' }}>
-              <div className="flex flex-col items-center">
-                <h3 className="font-headline-md text-white mb-4">Security-Surveillance</h3>
-                <p className="font-body-md text-on-surface-variant">
-                  To create such high-tech video equipments and integrate them into the surveillance system a training data set is required.
-                </p>
-              </div>
-              <Link to="/computer-vision" className="card-read-more-btn">
-                Read More
-              </Link>
-            </div>
+          <div className="glass-card p-8 flex flex-col gap-4">
+            <span className="material-symbols-outlined text-primary text-4xl" style={{ fontVariationSettings: "'FILL' 1" }}>precision_manufacturing</span>
+            <h3 className="font-headline-md text-white">02 // Precision-Engineered Quality</h3>
+            <p className="font-body-md text-on-surface-variant">
+              Multi-tiered annotation and verification pipelines ensuring 99.9% dataset precision, verified by automated logic protocols.
+            </p>
           </div>
-
-          {/* Real Estate */}
-          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
-            <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
-              <img src={realEstateImg} alt="Real Estate Building Segmentation" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
-            </div>
-            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '260px' }}>
-              <div className="flex flex-col items-center">
-                <h3 className="font-headline-md text-white mb-4">Real Estate</h3>
-                <p className="font-body-md text-on-surface-variant">
-                  Annotation for AI Training Data in Real Estate & Construction and help the real estate developers to design and develop the building landscape
-                </p>
-              </div>
-              <Link to="/data-annotation" className="card-read-more-btn">
-                Read More
-              </Link>
-            </div>
-          </div>
-
-          {/* Automotive */}
-          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
-            <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
-              <img src={automotiveImg} alt="Automotive Detection" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
-            </div>
-            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '260px' }}>
-              <div className="flex flex-col items-center">
-                <h3 className="font-headline-md text-white mb-4">Automotive</h3>
-                <p className="font-body-md text-on-surface-variant">
-                  A wide range of image annotation techniques is used to create training data for autonomous driving vehicles.
-                </p>
-              </div>
-              <Link to="/computer-vision" className="card-read-more-btn">
-                Read More
-              </Link>
-            </div>
-          </div>
-
-          {/* Sports */}
-          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
-            <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
-              <img src={sportsImg} alt="Sports Skeleton Keypoints" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
-            </div>
-            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '260px' }}>
-              <div className="flex flex-col items-center">
-                <h3 className="font-headline-md text-white mb-4">Sports</h3>
-                <p className="font-body-md text-on-surface-variant">
-                  Image Annotation Services for AI in Sports Analytics & Game Development
-                </p>
-              </div>
-              <Link to="/computer-vision" className="card-read-more-btn">
-                Read More
-              </Link>
-            </div>
-          </div>
-
-          {/* Agriculture */}
-          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
-            <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
-              <img src={agricultureImg} alt="Agriculture Apples Detection" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
-            </div>
-            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '260px' }}>
-              <div className="flex flex-col items-center">
-                <h3 className="font-headline-md text-white mb-4">Agriculture</h3>
-                <p className="font-body-md text-on-surface-variant">
-                  The use of AI in agriculture reached ground level, from crop health monitoring to geo-sensing for better productivity.
-                </p>
-              </div>
-              <Link to="/data-annotation" className="card-read-more-btn">
-                Read More
-              </Link>
-            </div>
-          </div>
-
-          {/* Medical */}
-          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
-            <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
-              <img src={medicalImg} alt="Medical X-Ray Segmentation" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
-            </div>
-            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '260px' }}>
-              <div className="flex flex-col items-center">
-                <h3 className="font-headline-md text-white mb-4">Medical</h3>
-                <p className="font-body-md text-on-surface-variant">
-                  Precision AI annotation for medical imaging diagnostics, helping healthcare providers classify and segment CT scans, X-rays, and MRI findings.
-                </p>
-              </div>
-              <Link to="/computer-vision" className="card-read-more-btn">
-                Read More
-              </Link>
-            </div>
-          </div>
-
-          {/* Fashion */}
-          <div className="glass-card flex flex-col relative" style={{ overflow: 'hidden', padding: 0 }}>
-            <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
-              <img src={fashionImg} alt="Fashion Segmentation" className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
-            </div>
-            <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '260px' }}>
-              <div className="flex flex-col items-center">
-                <h3 className="font-headline-md text-white mb-4">Fashion</h3>
-                <p className="font-body-md text-on-surface-variant">
-                  AI image segmentation and tagging services for fashion inventory categorization, digital catalogs, and recommendation engines.
-                </p>
-              </div>
-              <Link to="/product-categorization" className="card-read-more-btn">
-                Read More
-              </Link>
-            </div>
+          <div className="glass-card p-8 flex flex-col gap-4">
+            <span className="material-symbols-outlined text-primary text-4xl" style={{ fontVariationSettings: "'FILL' 1" }}>cloud_sync</span>
+            <h3 className="font-headline-md text-white">03 // Turnkey Scale & Latency</h3>
+            <p className="font-body-md text-on-surface-variant">
+              Sub-millisecond inference and high-throughput data processing networks deployed across edge nodes for infinite horizontal system scalability.
+            </p>
           </div>
         </div>
       </section>
