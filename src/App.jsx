@@ -9,6 +9,7 @@ import NLP from './pages/NLP';
 import ContentModeration from './pages/ContentModeration';
 import ProductCategorization from './pages/ProductCategorization';
 import DataAnnotation from './pages/DataAnnotation';
+import Contact from './pages/Contact';
 import BackgroundShader from './components/BackgroundShader';
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             <Route path="/content-moderation" element={<ContentModeration />} />
             <Route path="/product-categorization" element={<ProductCategorization />} />
             <Route path="/data-annotation" element={<DataAnnotation />} />
+            <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<Industries />} />
           </Routes>
         </main>

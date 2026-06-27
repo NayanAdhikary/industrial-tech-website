@@ -111,9 +111,11 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-        <button className="primary-button" style={{ padding: '8px 16px', fontSize: '14px', borderRadius: '4px' }}>
-          Contact Us
-        </button>
+        <Link to="/contact">
+          <button className="primary-button" style={{ padding: '8px 16px', fontSize: '14px', borderRadius: '4px', cursor: 'pointer' }}>
+            Contact Us
+          </button>
+        </Link>
       </div>
     </nav>
   );
