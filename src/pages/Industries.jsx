@@ -15,7 +15,7 @@ export default function Industries() {
         <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
           <HeroCore3D />
         </div>
-        
+
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '800px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <div style={{ display: 'inline-block', padding: '4px 12px', border: '1px solid rgba(100, 238, 220, 0.3)', backgroundColor: 'rgba(100, 238, 220, 0.05)', borderRadius: '9999px', alignSelf: 'center' }}>
             <span className="font-label-mono-sm text-primary uppercase tracking-widest">Industry 4.0 Standard</span>
@@ -23,7 +23,6 @@ export default function Industries() {
           <h1 className="font-display-xl text-white">
             Precision. Intelligence. <span className="text-primary">Security.</span>
           </h1>
-          <a href="https://github.com/NayanAdhikary/industrial-tech-website" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--color-primary)', textDecoration: 'underline', marginTop: '8px' }}>View source on GitHub</a>
           <p className="font-body-lg text-on-surface-variant">
             The future of industrial technology. We architect resilient, hyper-connected infrastructures that drive the next wave of industrial evolution through data-driven precision.
           </p>
@@ -37,7 +36,7 @@ export default function Industries() {
             </button>
           </div>
         </div>
-        
+
         {/* Atmospheric Grid */}
         <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '128px', background: 'linear-gradient(to top, var(--color-background), transparent)', zIndex: 10 }}></div>
       </section>
@@ -225,7 +224,7 @@ export default function Industries() {
             <p className="font-body-lg text-on-surface-variant">
               Security is not a feature; it is our foundation. Industrial Tech Collective operates under strict adherence to international information security management standards, ensuring your critical infrastructure data is protected by the most advanced protocols.
             </p>
-            
+
             <div className="grid grid-cols-1 gap-6" style={{ gridTemplateColumns: 'repeat(3, 1fr)', marginTop: '16px' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '4px' }}>
                 <p className="font-label-mono-sm text-primary uppercase">Encryption</p>
@@ -244,7 +243,7 @@ export default function Industries() {
               </div>
             </div>
           </div>
-          
+
           <div className="flex justify-center items-center">
             <div className="glass-card flex flex-col items-center justify-center text-center" style={{ width: '100%', maxWidth: '400px', aspectRatio: '1/1', borderRadius: '50%', border: '2px solid rgba(100, 238, 220, 0.2)', padding: '48px', gap: '24px' }}>
               <div className="teal-glow" style={{ width: '96px', height: '96px', borderRadius: '50%', backgroundColor: 'rgba(100, 238, 220, 0.1)', border: '1px solid rgba(100, 238, 220, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
