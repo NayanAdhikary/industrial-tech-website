@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import HeroCore3D from '../components/HeroCore3D';
+import systemArchImg from '../assets/system_architecture_diagram.png';
 
 // Custom Intersection Observer fade-in wrapper component
 function FadeIn({ children }) {
@@ -354,9 +355,9 @@ export default function DataAnnotation() {
               </div>
 
               <div style={{ position: 'relative' }}>
-                <div className="glass-card" style={{ padding: '48px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '360px', backgroundColor: 'rgba(100, 238, 220, 0.03)' }}>
-                  <span className="material-symbols-outlined text-[100px] text-primary/30 animate-pulse">hub</span>
-                  <div className="mt-8 font-label-mono-sm text-primary tracking-wider" style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '12px' }}>SYSTEM ARCHITECTURE: V4.2.0</div>
+                <div className="glass-card" style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '360px', backgroundColor: 'rgba(100, 238, 220, 0.03)' }}>
+                  <img src={systemArchImg} alt="System Architecture Diagram" style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '360px', opacity: 0.8 }} />
+                  <div className="font-label-mono-sm text-primary tracking-wider" style={{ position: 'absolute', bottom: '16px', left: '16px', backgroundColor: 'rgba(0, 0, 0, 0.7)', padding: '6px 12px', borderRadius: '4px', border: '1px solid rgba(100, 238, 220, 0.3)', fontFamily: 'var(--font-jetbrains)', fontSize: '11px' }}>SYSTEM ARCHITECTURE: V4.2.0</div>
                 </div>
               </div>
             </div>

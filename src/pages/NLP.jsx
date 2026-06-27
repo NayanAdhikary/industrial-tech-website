@@ -37,7 +37,7 @@ export default function NLP() {
       <div className="relative z-10">
 
         <main className="pt-32 pb-24 px-margin-edge max-w-container-max mx-auto relative">
-          <section className="relative min-h-[300px] flex flex-col items-center justify-center text-center mb-16 overflow-hidden rounded-xl border border-border-low glass-panel p-12">
+          <section className="relative min-h-[300px] flex flex-col items-center justify-center text-center mb-16 overflow-hidden rounded-xl border border-border-low glass-panel p-12 reveal">
             <div className="relative z-10 space-y-6">
               <div className="flex items-center justify-center gap-2 mb-4">
                 <span className="px-3 py-1 bg-primary/10 border border-primary/20 text-primary font-data-mono text-label-xs uppercase tracking-widest">Protocol: NLP-09</span>
@@ -52,8 +52,7 @@ export default function NLP() {
             </div>
           </section>
 
-          {/* Subtopics Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
             {Object.keys(subtopicData).map((key) => {
               const current = subtopicData[key];
               const isHighlighted = targetSubtopic === key;
@@ -101,7 +100,7 @@ export default function NLP() {
           </div>
         </main>
 
-<section className="bg-surface-container-low border-y border-border-low py-20 mt-24">
+<section className="bg-surface-container-low border-y border-border-low py-20 mt-24 reveal">
 <div className="max-w-container-max mx-auto px-margin-edge">
 <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
 <div className="space-y-4">

@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import HeroCore3D from '../components/HeroCore3D';
 import categorizationImg from '../assets/product_categorization.png';
+import neuralMeshBg from '../assets/neural_mesh_background.png';
 
 const subtopicData = {
   'industrial-taxonomy': { label: "Industrial Taxonomy", title: "UNSPSC & eCl@ss Industrial Taxonomy", desc: "Standardized hierarchical mapping of complex industrial assets and engineering materials, fully optimized for multi-tenant enterprise resource planning.", Metric: "TAXONOMY_LVL: 04", value: "eCl@ss Core" },
@@ -15,6 +16,45 @@ export default function ProductCategorization() {
   const queryParams = new URLSearchParams(location.search);
   const targetSubtopic = queryParams.get('subtopic');
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const terminalRef = useRef(null);
+  const [terminalLogs, setTerminalLogs] = useState([
+    '[INIT] System Intelligence Log node active.',
+    '[INFO] Listening to supply chain telemetry on port 8084...',
+    '[INFO] Database connection established.'
+  ]);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  useEffect(() => {
+    const logPool = [
+      '[SYNC] Synced 42 new items with UNSPSC Registry.',
+      '[PARSER] Processing product spec sheets... [OK]',
+      '[MODEL] Predicting eCl@ss hierarchy: Level 4 categorized.',
+      '[SCHEMA] Material attribute tolerance verified: ±0.001mm.',
+      '[CLEANUP] Redundant SKU metadata pruned.',
+      '[SYNC] GraphQL endpoint push: 200 OK.',
+      '[NET] Active mesh nodes: 78,400 ops/sec.',
+      '[INFO] Memory heap garbage collection completed.'
+    ];
+
+    const interval = setInterval(() => {
+      const randomLog = logPool[Math.floor(Math.random() * logPool.length)];
+      const timestamp = new Date().toISOString().split('T')[1].slice(0, 8);
+      setTerminalLogs(prev => [...prev.slice(-15), `[${timestamp}] ${randomLog}`]);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (terminalRef.current) {
+      terminalRef.current.scrollTop = terminalRef.current.scrollHeight;
+    }
+  }, [terminalLogs]);
 
   const cardRefs = {
     'industrial-taxonomy': React.useRef(null),
@@ -46,7 +86,7 @@ export default function ProductCategorization() {
         <main className="py-24 px-margin-edge max-w-container-max mx-auto space-y-gutter">
           
           {/* Header & Subtopic Tab Selector */}
-          <div className="glass-panel p-8 text-center" style={{ marginBottom: '32px' }}>
+          <div className="glass-panel p-8 text-center reveal" style={{ marginBottom: '32px' }}>
             <span className="px-3 py-1 bg-primary/10 border border-primary/20 text-primary font-data-mono text-label-xs uppercase tracking-widest" style={{ display: 'inline-block', marginBottom: '16px' }}>Protocol: CAT-04</span>
             <h1 className="font-display-lg text-display-lg text-white mb-4" style={{ fontSize: '42px', color: 'var(--color-primary)' }}>Product Categorization</h1>
             <p className="font-body-md text-on-surface-variant max-w-xl mx-auto mb-8">
@@ -55,7 +95,7 @@ export default function ProductCategorization() {
           </div>
 
           {/* Subtopics Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 reveal">
             {Object.keys(subtopicData).map((key) => {
               const current = subtopicData[key];
               const isHighlighted = targetSubtopic === key;
@@ -98,7 +138,7 @@ export default function ProductCategorization() {
             })}
           </div>
 
-          <section className="mt-gutter">
+          <section className="mt-gutter reveal">
             <div className="glass-panel overflow-hidden">
               <div className="flex items-center justify-between px-8 py-4 border-b border-border-low bg-surface-container-high/50">
                 <div className="flex items-center gap-3">
@@ -116,8 +156,12 @@ export default function ProductCategorization() {
               </div>
               <div className="p-8 grid grid-cols-1 lg:grid-cols-3 gap-8">
                 <div className="lg:col-span-2 space-y-4">
-                  <div className="bg-black/60 p-6 border border-primary/20 font-data-mono text-label-xs h-64 overflow-y-auto terminal-scroll" id="terminal-output">
-                    {/* Simulated output stream */}
+                  <div 
+                    ref={terminalRef}
+                    className="bg-black/60 p-6 border border-primary/20 font-data-mono text-label-xs h-64 overflow-y-auto terminal-scroll text-primary" 
+                    style={{ whiteSpace: 'pre-line', lineHeight: '1.6' }}
+                  >
+                    {terminalLogs.join('\n')}
                   </div>
                 </div>
                 <div className="space-y-6">
@@ -145,12 +189,12 @@ export default function ProductCategorization() {
           </section>
 
           {/* Corrected Grid Layout Section */}
-          <section style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(4, 1fr)', gap: '24px', height: isMobile ? 'auto' : '500px' }}>
+          <section className="reveal" style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(4, 1fr)', gap: '24px', height: isMobile ? 'auto' : '500px' }}>
             <div 
               className="glass-panel p-8 flex flex-col justify-end relative overflow-hidden"
               style={{ gridColumn: isMobile ? 'span 1' : 'span 2', gridRow: isMobile ? 'auto' : 'span 2' }}
             >
-              <div className="absolute inset-0 z-0 opacity-20 transition-opacity hover:opacity-40" style={{}}></div>
+              <div className="absolute inset-0 z-0 opacity-30 transition-opacity hover:opacity-55" style={{ backgroundImage: `url(${neuralMeshBg})`, backgroundSize: 'cover', backgroundPosition: 'center' }}></div>
               <div className="relative z-10">
                 <h3 className="font-display-lg text-headline-lg text-white mb-4 uppercase" style={{ margin: 0 }}>Neural Mesh Sync</h3>
                 <p className="font-body-md text-on-surface-variant max-w-md" style={{ marginTop: '8px' }}>Our neural mesh syncs multi-modal technical documentation into a unified taxonomy cloud in real-time.</p>

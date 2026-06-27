@@ -10,7 +10,7 @@ export default function Industries() {
   return (
     <div style={{ position: 'relative' }}>
       {/* Hero Section */}
-      <section style={{ minHeight: '900px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
+      <section className="reveal" style={{ minHeight: '900px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, zIndex: 0, opacity: 0.4, background: 'radial-gradient(circle at center, rgba(64, 209, 192, 0.15) 0%, transparent 60%)' }}></div>
         <div style={{ position: 'absolute', inset: 0, zIndex: 1 }}>
           <HeroCore3D />
@@ -27,13 +27,20 @@ export default function Industries() {
             The future of industrial technology. We architect resilient, hyper-connected infrastructures that drive the next wave of industrial evolution through data-driven precision.
           </p>
           <div className="flex gap-4 justify-center pt-8" style={{ marginTop: '32px' }}>
-            <button className="primary-button font-headline-md">
-              Initialize System
-              <span className="material-symbols-outlined text-lg">terminal</span>
-            </button>
-            <button className="secondary-button font-label-mono-md">
-              View Specifications
-            </button>
+            <a 
+              href="#core-verticals" 
+              className="primary-button font-headline-md"
+              onClick={(e) => {
+                e.preventDefault();
+                document.getElementById('core-verticals')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Showcase Projects
+              <span className="material-symbols-outlined text-lg">explore</span>
+            </a>
+            <Link to="/contact" className="secondary-button font-label-mono-md">
+              Contact Us
+            </Link>
           </div>
         </div>
 
@@ -42,7 +49,7 @@ export default function Industries() {
       </section>
 
       {/* Industries Bento Grid */}
-      <section className="py-section-padding container">
+      <section id="core-verticals" className="py-section-padding container reveal">
         <div style={{ marginBottom: '64px' }}>
           <h2 className="font-headline-lg text-white mb-4">Core Verticals</h2>
           <div style={{ width: '96px', height: '4px', backgroundColor: 'var(--color-primary)', marginBottom: '16px' }}></div>
@@ -177,7 +184,7 @@ export default function Industries() {
       </section>
 
       {/* Why Industrial Tech Collective Section */}
-      <section className="py-section-padding container" style={{ borderTop: '1px solid var(--color-border-muted)' }}>
+      <section className="py-section-padding container reveal" style={{ borderTop: '1px solid var(--color-border-muted)' }}>
         <div style={{ marginBottom: '64px', textAlign: 'center' }}>
           <p className="font-label-mono-md text-primary uppercase tracking-widest" style={{ marginBottom: '16px' }}>Core Advantages</p>
           <h2 className="font-headline-lg text-white mb-4">Why Industrial Tech Collective</h2>
@@ -213,7 +220,7 @@ export default function Industries() {
       </section>
 
       {/* Security Section */}
-      <section className="py-section-padding bg-surface-deep relative" style={{ borderTop: '1px solid var(--color-border-muted)', borderBottom: '1px solid var(--color-border-muted)' }}>
+      <section className="py-section-padding bg-surface-deep relative reveal" style={{ borderTop: '1px solid var(--color-border-muted)', borderBottom: '1px solid var(--color-border-muted)' }}>
         <div className="container grid md:grid-cols-2 gap-8 items-center relative z-10" style={{ gap: '64px' }}>
           <div className="flex flex-col gap-6" style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '16px', padding: '8px 16px', backgroundColor: 'rgba(100, 238, 220, 0.1)', border: '1px solid rgba(100, 238, 220, 0.2)', borderRadius: '8px', alignSelf: 'flex-start' }}>
@@ -257,7 +264,7 @@ export default function Industries() {
       </section>
 
       {/* Footer CTA */}
-      <section className="py-section-padding text-center container">
+      <section className="py-section-padding text-center container reveal">
         <div style={{ maxWidth: '768px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '32px' }}>
           <h2 className="font-headline-lg text-white">Ready for Integration?</h2>
           <p className="font-body-lg text-on-surface-variant">Deploy our proprietary technology stack across your enterprise ecosystem and unlock unprecedented operational clarity.</p>

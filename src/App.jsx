@@ -1,5 +1,5 @@
-import React from 'react';
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Industries from './pages/Industries';
@@ -12,9 +12,41 @@ import DataAnnotation from './pages/DataAnnotation';
 import Contact from './pages/Contact';
 import BackgroundShader from './components/BackgroundShader';
 
+function ScrollRevealManager() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.05,
+      rootMargin: '0px 0px -40px 0px'
+    });
+
+    // Observe all elements with .reveal class
+    const revealElements = document.querySelectorAll('.reveal');
+    revealElements.forEach(el => observer.observe(el));
+
+    return () => {
+      revealElements.forEach(el => observer.unobserve(el));
+      observer.disconnect();
+    };
+  }, [location]);
+
+  return null;
+}
+
 function App() {
   return (
     <Router>
+      <ScrollRevealManager />
       <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
         <BackgroundShader />
         <Navbar />

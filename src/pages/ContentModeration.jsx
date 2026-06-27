@@ -39,7 +39,7 @@ export default function ContentModeration() {
         <main className="flex-grow pt-32 pb-20 px-margin-edge max-w-container-max mx-auto w-full">
 
           {/* Hero Section */}
-          <section className="mb-20 flex flex-col items-center justify-center text-center">
+          <section className="mb-20 flex flex-col items-center justify-center text-center reveal">
             <div className="z-10 max-w-3xl flex flex-col items-center mb-12">
               <div className="flex items-center justify-center gap-2 mb-4">
                 <span className="inline-block w-2 h-2 bg-primary animate-pulse rounded-full"></span>
@@ -69,7 +69,7 @@ export default function ContentModeration() {
           </section>
 
           {/* Subtopics Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 reveal">
             {Object.keys(subtopicData).map((key) => {
               const current = subtopicData[key];
               const isHighlighted = targetSubtopic === key;
@@ -117,7 +117,7 @@ export default function ContentModeration() {
           </div>
 
           {/* Features Grid Section */}
-          <section className="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-20">
+          <section className="grid grid-cols-1 md:grid-cols-3 gap-gutter mb-20 reveal">
 
             <div className="glass-card p-8 flex flex-col items-center text-center gap-6 teal-glow-hover transition-all duration-300">
               <div className="flex flex-col items-center gap-2">
@@ -190,7 +190,7 @@ export default function ContentModeration() {
           </section>
 
           {/* Threat Intelligence / Log Section */}
-          <section className="glass-card rounded-xl overflow-hidden border border-border-low p-0">
+          <section className="glass-card rounded-xl overflow-hidden border border-border-low p-0 reveal">
             <div className="bg-surface-container px-6 py-3 flex items-center justify-between border-b border-border-low">
               <div className="flex items-center gap-4">
                 <div className="flex gap-1.5">

@@ -51,7 +51,7 @@ export default function ComputerVision() {
   return (
     <div style={{ position: 'relative' }}>
       {/* Hero Section */}
-      <section className="relative flex flex-col items-center justify-center overflow-hidden" style={{ minHeight: '600px', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', padding: '120px 0 60px' }}>
+      <section className="relative flex flex-col items-center justify-center overflow-hidden reveal" style={{ minHeight: '600px', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', padding: '120px 0 60px' }}>
         <HeroCore3D />
         <div className="container relative z-10 text-center flex flex-col items-center gap-6" style={{ maxWidth: '800px' }}>
           <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '4px 12px', backgroundColor: 'rgba(100, 238, 220, 0.1)', border: '1px solid rgba(100, 238, 220, 0.2)', borderRadius: '9999px' }}>
@@ -68,7 +68,7 @@ export default function ComputerVision() {
       </section>
 
       {/* Subtopics Cards Grid */}
-      <section className="py-section-padding container">
+      <section className="py-section-padding container reveal">
         <div style={{ marginBottom: '64px' }}>
           <h2 className="font-headline-lg text-white mb-4">Application Domains</h2>
           <div style={{ width: '96px', height: '4px', backgroundColor: 'var(--color-primary)', marginBottom: '16px' }}></div>
@@ -113,7 +113,7 @@ export default function ComputerVision() {
       </section>
 
       {/* Core Capabilities Section */}
-      <section className="py-section-padding container">
+      <section className="py-section-padding container reveal">
         <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6" style={{ marginBottom: '48px' }}>
           <div>
             <h2 className="font-headline-lg text-on-surface">Core Capabilities</h2>
@@ -155,7 +155,7 @@ export default function ComputerVision() {
       </section>
 
       {/* Security & Quality Section */}
-      <section className="py-section-padding relative overflow-hidden" style={{ backgroundColor: 'var(--color-surface-container-lowest)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+      <section className="py-section-padding relative overflow-hidden reveal" style={{ backgroundColor: 'var(--color-surface-container-lowest)', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
         <div className="container relative z-10">
           <div className="glass-card flex flex-col md:flex-row items-center gap-16" style={{ padding: '48px', borderLeft: '4px solid var(--color-primary)' }}>
             <div style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: '32px' }}>

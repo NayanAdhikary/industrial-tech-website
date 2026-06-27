@@ -5,7 +5,7 @@ export default function Solutions() {
   return (
     <div style={{ position: 'relative' }}>
       {/* Hero Section */}
-      <section style={{ height: '819px', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
+      <section className="reveal" style={{ height: '819px', display: 'flex', alignItems: 'center', position: 'relative', overflow: 'hidden', borderBottom: '1px solid rgba(255, 255, 255, 0.05)' }}>
         <div className="container grid md:grid-cols-2 gap-12 items-center relative z-10" style={{ width: '100%' }}>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
             <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '4px 12px', backgroundColor: 'rgba(100, 238, 220, 0.1)', border: '1px solid rgba(100, 238, 220, 0.2)', borderRadius: '9999px', alignSelf: 'flex-start' }}>
@@ -44,7 +44,7 @@ export default function Solutions() {
       </section>
 
       {/* Bento Solutions Grid */}
-      <section className="py-section-padding container">
+      <section className="py-section-padding container reveal">
         <div className="flex flex-col md:flex-row justify-between items-end mb-8 gap-6" style={{ marginBottom: '48px' }}>
           <div>
             <h2 className="font-headline-lg text-white mb-2">Technical Core Solutions</h2>
@@ -120,7 +120,7 @@ export default function Solutions() {
       </section>
 
       {/* Technical Integration Section */}
-      <section className="py-section-padding bg-surface-container-lowest relative overflow-hidden">
+      <section className="py-section-padding bg-surface-container-lowest relative overflow-hidden reveal">
         <div className="container relative z-10">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
