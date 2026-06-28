@@ -11,16 +11,18 @@ import sportsImg from '../assets/sports_keypoints.png';
 import agricultureImg from '../assets/agriculture_detection.png';
 import medicalImg from '../assets/medical_segmentation.png';
 import fashionImg from '../assets/fashion_segmentation.png';
+import architectureImg from '../assets/architecture_detection.png';
 
 const subtopicData = {
-  retail: { label: "Retail", title: "Retail Object Detection", img: retailImg, desc: "AI in e-commerce and retail industry is creating a brand new dimension for the fashion and e-commerce industry with a much better shopping experience for customers." },
-  security: { label: "Security", title: "Security Surveillance Weapon Detection", img: securityImg, desc: "To create such high-tech video equipments and integrate them into the surveillance system a training data set is required." },
-  'real-estate': { label: "Real Estate", title: "Real Estate Building Segmentation", img: realEstateImg, desc: "Annotation for AI Training Data in Real Estate & Construction and help the real estate developers to design and develop the building landscape." },
-  automotive: { label: "Automotive", title: "Automotive Detection", img: automotiveImg, desc: "A wide range of image annotation techniques is used to create training data for autonomous driving vehicles." },
-  sports: { label: "Sports", title: "Sports Skeleton Keypoints", img: sportsImg, desc: "Image Annotation Services for AI in Sports Analytics & Game Development." },
-  agriculture: { label: "Agriculture", title: "Agriculture Apples Detection", img: agricultureImg, desc: "The use of AI in agriculture reached ground level, from crop health monitoring to geo-sensing for better productivity." },
-  medical: { label: "Medical", title: "Medical X-Ray Segmentation", img: medicalImg, desc: "Precision AI annotation for medical imaging diagnostics, helping healthcare providers classify and segment CT scans, X-rays, and MRI findings." },
-  fashion: { label: "Fashion", title: "Fashion Segmentation", img: fashionImg, desc: "AI image segmentation and tagging services for fashion inventory categorization, digital catalogs, and recommendation engines." }
+  retail: { label: "Retail", title: "Retail Object Detection", img: retailImg, type: "OBJECT DETECTION", desc: "AI in e-commerce and retail industry is creating a brand new dimension for the fashion and e-commerce industry with a much better shopping experience for customers." },
+  security: { label: "Security", title: "Security Surveillance Weapon Detection", img: securityImg, type: "WEAPON DETECTION", desc: "To create such high-tech video equipments and integrate them into the surveillance system a training data set is required." },
+  'real-estate': { label: "Real Estate", title: "Real Estate Building Segmentation", img: realEstateImg, type: "IMAGE SEGMENTATION", desc: "Annotation for AI Training Data in Real Estate & Construction and help the real estate developers to design and develop the building landscape." },
+  automotive: { label: "Automotive", title: "Automotive Detection", img: automotiveImg, type: "OBJECT DETECTION", desc: "A wide range of image annotation techniques is used to create training data for autonomous driving vehicles." },
+  sports: { label: "Sports", title: "Sports Skeleton Keypoints", img: sportsImg, type: "SKELETON KEYPOINTS", desc: "Image Annotation Services for AI in Sports Analytics & Game Development." },
+  agriculture: { label: "Agriculture", title: "Agriculture Apples Detection", img: agricultureImg, type: "OBJECT DETECTION", desc: "The use of AI in agriculture reached ground level, from crop health monitoring to geo-sensing for better productivity." },
+  medical: { label: "Medical", title: "Medical X-Ray Segmentation", img: medicalImg, type: "SEMANTIC SEGMENTATION", desc: "Precision AI annotation for medical imaging diagnostics, helping healthcare providers classify and segment CT scans, X-rays, and MRI findings." },
+  fashion: { label: "Fashion", title: "Fashion Segmentation", img: fashionImg, type: "INSTANCE SEGMENTATION", desc: "AI image segmentation and tagging services for fashion inventory categorization, digital catalogs, and recommendation engines." },
+  architecture: { label: "Architecture", title: "Architecture & Structural Analysis", img: architectureImg, type: "STRUCTURAL ANALYSIS", desc: "AI models for structural integrity analysis, architectural draft parsing, and automated construction planning." }
 };
 
 export default function ComputerVision() {
@@ -68,14 +70,40 @@ export default function ComputerVision() {
       </section>
 
       {/* Subtopics Cards Grid */}
-      <section className="py-section-padding container reveal">
-        <div style={{ marginBottom: '64px' }}>
-          <h2 className="font-headline-lg text-white mb-4">Application Domains</h2>
-          <div style={{ width: '96px', height: '4px', backgroundColor: 'var(--color-primary)', marginBottom: '16px' }}></div>
-          <p className="font-label-mono-md text-on-surface-variant uppercase tracking-widest">Systems In Production</p>
+      <section className="py-section-padding container reveal relative">
+        {/* Structural Side Borders */}
+        <div className="hidden lg:block absolute left-4 top-0 bottom-0 w-[1px] bg-primary/20 pointer-events-none z-0">
+          <div className="absolute top-1/4 -left-1 w-2 h-2 bg-primary"></div>
+          <div className="absolute top-3/4 -left-1 w-2 h-2 bg-primary"></div>
+        </div>
+        <div className="hidden lg:block absolute right-4 top-0 bottom-0 w-[1px] bg-primary/20 pointer-events-none z-0">
+          <div className="absolute top-1/3 -right-1 w-2 h-2 bg-primary"></div>
+          <div className="absolute top-2/3 -right-1 w-2 h-2 bg-primary"></div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="relative z-10">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 border-b border-primary/20 pb-8">
+            <div>
+              <div className="flex items-center gap-2 mb-2">
+                <div className="w-2 h-2 bg-primary animate-pulse"></div>
+                <span className="font-label-mono-sm text-primary/70">SEC_01 // DOMAINS</span>
+              </div>
+              <h2 className="font-headline-lg text-white">
+                <span className="text-primary/50 mr-2 opacity-50">[</span>
+                Application Domains
+                <span className="text-primary/50 ml-2 opacity-50">]</span>
+              </h2>
+            </div>
+            <div className="text-right mt-4 md:mt-0">
+              <div style={{ width: '96px', height: '4px', backgroundColor: 'var(--color-primary)', marginBottom: '8px', marginLeft: 'auto' }}></div>
+              <p className="font-label-mono-md text-on-surface-variant uppercase tracking-widest">Systems In Production</p>
+            </div>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 relative">
+            {/* Connecting Tech Lines */}
+            <div className="hidden md:block absolute -top-8 left-1/3 w-[1px] h-8 bg-primary/30"></div>
+            <div className="hidden md:block absolute -top-8 right-1/3 w-[1px] h-8 bg-primary/30"></div>
           {Object.keys(subtopicData).map((key) => {
             const current = subtopicData[key];
             const isHighlighted = targetSubtopic === key;
@@ -92,23 +120,51 @@ export default function ComputerVision() {
                   transition: 'all 0.5s ease'
                 }}
               >
-                <div className="card-image-container" style={{ width: '100%', height: '240px' }}>
-                  <img src={current.img} alt={current.title} className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
+                <div className="card-image-container" style={{ width: '100%', height: '240px', position: 'relative', padding: '12px' }}>
+                  {/* Architectural Image Frame */}
+                  <div className="relative w-full h-full" style={{ border: '1px solid var(--color-primary-alpha-20)' }}>
+                    {/* Node points */}
+                    <div className="absolute -top-1 -left-1 w-2 h-2 bg-primary/40"></div>
+                    <div className="absolute -top-1 -right-1 w-2 h-2 bg-primary/40"></div>
+                    <div className="absolute -bottom-1 -left-1 w-2 h-2 bg-primary/40"></div>
+                    <div className="absolute -bottom-1 -right-1 w-2 h-2 bg-primary/40"></div>
+                    
+                    {/* Original image with normal colors */}
+                    <img src={current.img} alt={current.title} className="card-image w-full h-full" style={{ objectFit: 'cover' }} />
+                    
+                    {/* Subtle Scanline Overlay */}
+                    <div className="absolute inset-0 pointer-events-none bg-primary/5 mix-blend-overlay z-1"></div>
+                    
+                    {/* Data Overlay - explicitly showing the type of work done */}
+                    <div className="absolute bottom-2 left-2 right-2 flex justify-between items-end z-1 pointer-events-none">
+                      <div className="font-label-mono-sm text-[10px] text-white bg-black/70 px-2 py-1 border border-primary/30 rounded backdrop-blur-sm">
+                        <span className="text-primary mr-1">TYPE:</span> {current.type}
+                      </div>
+                      <div className="font-label-mono-sm text-[8px] text-primary/50 text-right">
+                        SYS: OK<br/>
+                        IDX: {Math.random().toString(36).substring(2, 6).toUpperCase()}
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '260px' }}>
+                <div className="flex flex-col items-center justify-between flex-grow text-center" style={{ padding: '32px 24px', minHeight: '260px', position: 'relative' }}>
+                  <div className="absolute top-2 right-4 font-label-mono-sm text-[10px] text-primary/30">
+                    // NODE_ACTIVE
+                  </div>
                   <div className="flex flex-col items-center">
                     <h3 className="font-headline-md text-white mb-4">{current.label}</h3>
                     <p className="font-body-md text-on-surface-variant">
                       {current.desc}
                     </p>
                   </div>
-                  <button className="card-read-more-btn" style={{ cursor: 'pointer' }}>
+                  <button className="card-read-more-btn" style={{ cursor: 'pointer', marginTop: '24px' }}>
                     Launch Spec
                   </button>
                 </div>
               </div>
             );
           })}
+        </div>
         </div>
       </section>
 
@@ -150,6 +206,71 @@ export default function ComputerVision() {
             <span className="material-symbols-outlined text-primary mb-4" style={{ fontSize: '36px' }}>gesture</span>
             <h3 className="font-label-mono-sm text-white mb-2">Navigation Logic</h3>
             <p className="text-on-surface-variant" style={{ fontSize: '14px' }}>Polygon & Lane Annotation protocols critical for autonomous navigation and edge detection.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* System Architecture Section */}
+      <section className="py-section-padding container reveal">
+        <div style={{ marginBottom: '48px', textAlign: 'center' }}>
+          <h2 className="font-headline-lg text-white mb-4">
+            <span className="text-primary/50 mr-2 opacity-50">[</span>
+            System Architecture
+            <span className="text-primary/50 ml-2 opacity-50">]</span>
+          </h2>
+          <div style={{ width: '96px', height: '4px', backgroundColor: 'var(--color-primary)', margin: '0 auto 16px' }}></div>
+          <p className="font-label-mono-md text-on-surface-variant uppercase tracking-widest">Inference Pipeline v4.0</p>
+        </div>
+
+        <div className="glass-card" style={{ padding: '48px', position: 'relative', overflow: 'hidden' }}>
+          <div className="absolute inset-0 blueprint-bg opacity-20" style={{
+            backgroundImage: 'linear-gradient(var(--color-primary-alpha-5) 1px, transparent 1px), linear-gradient(90deg, var(--color-primary-alpha-5) 1px, transparent 1px)',
+            backgroundSize: '20px 20px',
+            zIndex: 0
+          }}></div>
+          
+          <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
+            {/* Step 1 */}
+            <div className="flex-1 flex flex-col items-center text-center">
+              <div style={{ width: '80px', height: '80px', border: '1px solid var(--color-primary)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'var(--color-primary-alpha-10)', marginBottom: '24px', position: 'relative' }}>
+                <span className="material-symbols-outlined text-primary text-3xl">data_usage</span>
+                <div className="absolute -right-2 top-0 bg-surface px-1 text-[10px] text-primary border border-primary/30">IN</div>
+              </div>
+              <h4 className="font-label-mono-md text-white mb-2">RAW_DATA_INGEST</h4>
+              <p className="text-on-surface-variant text-sm">Unstructured visual data streams via high-throughput encrypted pipes.</p>
+            </div>
+
+            {/* Arrow */}
+            <div className="hidden md:flex flex-col items-center text-primary/50">
+              <span className="font-label-mono-sm text-[10px] mb-2">TENSOR_STREAM</span>
+              <span className="material-symbols-outlined animate-pulse text-3xl">arrow_right_alt</span>
+            </div>
+
+            {/* Step 2 */}
+            <div className="flex-1 flex flex-col items-center text-center">
+              <div style={{ width: '90px', height: '90px', border: '2px solid var(--color-primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'var(--color-primary-alpha-20)', marginBottom: '24px', position: 'relative', transform: 'rotate(45deg)' }}>
+                <span className="material-symbols-outlined text-primary text-4xl" style={{ transform: 'rotate(-45deg)' }}>memory</span>
+                <div className="absolute -top-4 -right-4 bg-surface px-1 text-[10px] text-primary border border-primary/30" style={{ transform: 'rotate(-45deg)' }}>CNN_CORE</div>
+              </div>
+              <h4 className="font-label-mono-md text-white mb-2 mt-2">NEURAL_PROCESSING</h4>
+              <p className="text-on-surface-variant text-sm">Multi-layered convolutional networks performing precise feature extraction.</p>
+            </div>
+
+            {/* Arrow */}
+            <div className="hidden md:flex flex-col items-center text-primary/50">
+              <span className="font-label-mono-sm text-[10px] mb-2">VECTOR_MAPS</span>
+              <span className="material-symbols-outlined animate-pulse text-3xl">arrow_right_alt</span>
+            </div>
+
+            {/* Step 3 */}
+            <div className="flex-1 flex flex-col items-center text-center">
+              <div style={{ width: '80px', height: '80px', border: '1px dashed var(--color-primary)', borderRadius: '8px', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'var(--color-primary-alpha-10)', marginBottom: '24px', position: 'relative' }}>
+                <span className="material-symbols-outlined text-primary text-3xl">center_focus_strong</span>
+                <div className="absolute -right-2 top-0 bg-surface px-1 text-[10px] text-primary border border-primary/30">OUT</div>
+              </div>
+              <h4 className="font-label-mono-md text-white mb-2">SEMANTIC_OUTPUT</h4>
+              <p className="text-on-surface-variant text-sm">Pixel-perfect annotated masks and bounding boxes deployed to edge.</p>
+            </div>
           </div>
         </div>
       </section>

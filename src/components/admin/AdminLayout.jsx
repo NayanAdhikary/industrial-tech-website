@@ -6,8 +6,9 @@ export default function AdminLayout() {
 
   const navItems = [
     { name: 'Dashboard', path: '/admin', icon: 'dashboard' },
-    { name: 'Messages', path: '/admin/messages', icon: 'mail' },
+    { name: 'Job Roles', path: '/admin/jobs', icon: 'work' },
     { name: 'Users', path: '/admin/users', icon: 'group' },
+    { name: 'Messages', path: '/admin/messages', icon: 'mail' },
     { name: 'Settings', path: '/admin/settings', icon: 'settings' },
   ];
 

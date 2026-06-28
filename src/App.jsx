@@ -18,6 +18,7 @@ import AdminLayout from './components/admin/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import AdminMessages from './pages/admin/AdminMessages';
 import AdminUsers from './pages/admin/AdminUsers';
+import AdminJobs from './pages/admin/AdminJobs';
 import AdminSettings from './pages/admin/AdminSettings';
 
 function ScrollRevealManager() {
@@ -75,6 +76,7 @@ function App() {
           <Route index element={<AdminDashboard />} />
           <Route path="messages" element={<AdminMessages />} />
           <Route path="users" element={<AdminUsers />} />
+          <Route path="jobs" element={<AdminJobs />} />
           <Route path="settings" element={<AdminSettings />} />
           <Route path="*" element={<AdminDashboard />} />
         </Route>
