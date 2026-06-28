@@ -26,8 +26,8 @@ export default function ThreeJsHero() {
     const group = new THREE.Group();
     scene.add(group);
 
-    // Core Industrial Wireframe (Icosahedron)
-    const geometry = new THREE.IcosahedronGeometry(2.5, 1);
+    // Core Industrial Wireframe (Cube)
+    const geometry = new THREE.BoxGeometry(3, 3, 3);
     const wireframe = new THREE.WireframeGeometry(geometry);
     const material = new THREE.LineBasicMaterial({ 
       color: 0x40D1C0, 

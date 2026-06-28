@@ -145,7 +145,7 @@ export default function Contact() {
         {/* Contact Terminal & Support Sidebar */}
         <section style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(12, 1fr)', gap: '32px' }}>
           {/* Terminal Window */}
-          <div style={{ gridColumn: isMobile ? 'span 1' : 'span 8' }}>
+          <div style={{ gridColumn: isMobile ? 'span 1' : '3 / 11' }}>
             <FadeIn>
               <div className="glass-card" style={{ padding: 0, position: 'relative', overflow: 'hidden', border: '1px solid var(--color-teal-glow)', boxShadow: '0 0 20px var(--color-primary-alpha-10)' }}>
                 {/* Horizontal scanner effect line */}
@@ -263,55 +263,6 @@ export default function Contact() {
               </div>
             </FadeIn>
           </div>
-
-          {/* Support Sidebar */}
-          <aside style={{ gridColumn: isMobile ? 'span 1' : 'span 4', display: 'flex', flexDirection: 'column', gap: '24px' }}>
-            <FadeIn>
-              <div className="glass-card" style={{ padding: '24px' }}>
-                <h3 style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '12px', color: 'var(--color-primary)', marginBottom: '24px', textTransform: 'uppercase', tracking: '0.1em' }}>Direct Support Link</h3>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', padding: '12px', backgroundColor: 'var(--color-surface-container)', border: '1px solid rgba(255,255,255,0.05)' }}>
-                    <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '11px', color: 'var(--color-on-surface-variant)' }}>SYSTEM_STATUS</span>
-                    <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '11px', color: 'var(--color-primary)' }}>[ OPTIMAL ]</span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', padding: '12px', backgroundColor: 'var(--color-surface-container)', border: '1px solid rgba(255,255,255,0.05)' }}>
-                    <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '11px', color: 'var(--color-on-surface-variant)' }}>SUPPORT_OPS</span>
-                    <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '11px', color: 'var(--color-primary)' }}>ONLINE</span>
-                  </div>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', padding: '12px', backgroundColor: 'var(--color-surface-container)', border: '1px solid rgba(255,255,255,0.05)' }}>
-                    <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '11px', color: 'var(--color-on-surface-variant)' }}>ACTIVE_NODES</span>
-                    <span style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '11px', color: 'var(--color-primary)' }}>14 / 14</span>
-                  </div>
-                </div>
-                <button 
-                  onClick={() => alert("VoIP Emergency tunnel request sent. Connecting to operator...")}
-                  style={{ width: '100%', marginTop: '32px', border: '1px solid var(--color-primary-alpha-40)', color: 'var(--color-primary)', backgroundColor: 'transparent', padding: '12px 0', fontFamily: 'var(--font-jetbrains)', fontSize: '12px', textTransform: 'uppercase', tracking: '0.1em', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', cursor: 'pointer' }}
-                  className="hover:bg-primary/10 transition-all"
-                >
-                  <span className="material-symbols-outlined" style={{ fontSize: '18px' }}>headset_mic</span>
-                  Init Emergency VoIP
-                </button>
-              </div>
-            </FadeIn>
-
-            {/* Logs Window */}
-            <FadeIn>
-              <div className="glass-card" style={{ padding: '24px', height: '256px', position: 'relative', overflow: 'hidden' }}>
-                <h3 style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '12px', color: 'var(--color-primary)', marginBottom: '16px', textTransform: 'uppercase', tracking: '0.1em' }}>System Logs</h3>
-                <div 
-                  ref={logTerminalRef}
-                  style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontFamily: 'var(--font-jetbrains)', fontSize: '10px', color: 'rgba(187,202,198,0.4)', lineHeight: 1.4, height: '160px', overflowY: 'auto', paddingRight: '8px' }}
-                >
-                  {logs.map((log) => (
-                    <div key={log.id}>
-                      <span style={{ color: 'var(--color-primary)', opacity: 0.6 }}>{log.time}</span> {log.text}
-                    </div>
-                  ))}
-                </div>
-                <div style={{ position: 'absolute', bottom: 0, left: 0, width: '100%', height: '48px', background: 'linear-gradient(to top, var(--color-surface-deep), transparent)', pointerEvents: 'none' }}></div>
-              </div>
-            </FadeIn>
-          </aside>
         </section>
 
         {/* Global Intelligence Nodes */}
@@ -347,16 +298,37 @@ export default function Contact() {
               </div>
 
               {/* Map Center placeholder */}
-              <div style={{ gridColumn: isMobile ? 'span 1' : 'span 2', minHeight: '400px', display: 'flex', position: 'relative' }} className="glass-card">
-                <div className="absolute inset-0 blueprint-bg opacity-30" style={{
-                  backgroundImage: 'linear-gradient(var(--color-primary-alpha-5) 1px, transparent 1px), linear-gradient(90deg, var(--color-primary-alpha-5) 1px, transparent 1px)',
-                  backgroundSize: '20px 20px',
+              <div style={{ gridColumn: isMobile ? 'span 1' : 'span 2', minHeight: '400px', display: 'flex', position: 'relative', overflow: 'hidden' }} className="glass-card">
+                <div style={{
+                  position: 'absolute',
+                  inset: 0,
+                  width: '100%',
+                  height: '100%',
+                  backgroundImage: `url("${import.meta.env.BASE_URL}futuristic_world_map.png")`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  opacity: 0.8,
                   zIndex: 0
                 }}></div>
-                <div style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', zIndex: 1, position: 'relative' }}>
-                  <span className="material-symbols-outlined text-primary/20 text-9xl animate-pulse" style={{ fontSize: '120px' }}>public</span>
-                  <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '11px', color: 'var(--color-primary)', opacity: 0.5, marginTop: '16px' }}>MAP_RENDER_INITIALIZING...</div>
-                </div>
+                <div style={{
+                  position: 'absolute',
+                  inset: 0,
+                  width: '100%',
+                  height: '100%',
+                  backgroundColor: 'var(--color-primary-alpha-20)',
+                  mixBlendMode: 'overlay',
+                  zIndex: 1
+                }}></div>
+                <div className="blueprint-bg" style={{
+                  position: 'absolute',
+                  inset: 0,
+                  width: '100%',
+                  height: '100%',
+                  opacity: 0.3,
+                  backgroundImage: 'linear-gradient(var(--color-primary-alpha-5) 1px, transparent 1px), linear-gradient(90deg, var(--color-primary-alpha-5) 1px, transparent 1px)',
+                  backgroundSize: '20px 20px',
+                  zIndex: 2
+                }}></div>
                 <div style={{ position: 'absolute', bottom: '24px', right: '24px', backgroundColor: 'var(--color-surface)', border: '1px solid rgba(255,255,255,0.1)', padding: '16px', fontFamily: 'var(--font-jetbrains)', fontSize: '10px', display: 'flex', flexDirection: 'column', gap: '8px', zIndex: 10 }}>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--color-primary)' }}></div> ACTIVE_NODE</div>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><div style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: '#ffa963' }}></div> STANDBY</div>
