@@ -17,7 +17,7 @@ export default function Industries() {
         </div>
 
         <div style={{ position: 'relative', zIndex: 10, maxWidth: '800px', display: 'flex', flexDirection: 'column', gap: '24px' }}>
-          <div style={{ display: 'inline-block', padding: '4px 12px', border: '1px solid rgba(100, 238, 220, 0.3)', backgroundColor: 'rgba(100, 238, 220, 0.05)', borderRadius: '9999px', alignSelf: 'center' }}>
+          <div style={{ display: 'inline-block', padding: '4px 12px', border: '1px solid var(--color-primary-alpha-30)', backgroundColor: 'var(--color-primary-alpha-5)', borderRadius: '9999px', alignSelf: 'center' }}>
             <span className="font-label-mono-sm text-primary uppercase tracking-widest">Industry 4.0 Standard</span>
           </div>
           <h1 className="font-display-xl text-white">
@@ -79,7 +79,7 @@ export default function Industries() {
                     { label: 'Medical', slug: 'medical' },
                     { label: 'Fashion', slug: 'fashion' }
                   ].map((opt) => (
-                    <Link key={opt.slug} to={`/computer-vision?subtopic=${opt.slug}`} style={{ padding: '4px 10px', fontSize: '11px', border: '1px solid rgba(100, 238, 220, 0.2)', backgroundColor: 'rgba(100, 238, 220, 0.05)', borderRadius: '4px', color: 'var(--color-primary)', textDecoration: 'none', transition: 'all 0.2s ease' }} className="font-label-mono-sm subtopic-link-tag">
+                    <Link key={opt.slug} to={`/computer-vision?subtopic=${opt.slug}`} style={{ padding: '4px 10px', fontSize: '11px', border: '1px solid var(--color-primary-alpha-20)', backgroundColor: 'var(--color-primary-alpha-5)', borderRadius: '4px', color: 'var(--color-primary)', textDecoration: 'none', transition: 'all 0.2s ease' }} className="font-label-mono-sm subtopic-link-tag">
                       {opt.label}
                     </Link>
                   ))}
@@ -109,7 +109,7 @@ export default function Industries() {
                     { label: 'Technical Taxonomy', slug: 'technical-taxonomy' },
                     { label: 'Machine Translation', slug: 'machine-translation' }
                   ].map((opt) => (
-                    <Link key={opt.slug} to={`/nlp?subtopic=${opt.slug}`} style={{ padding: '4px 10px', fontSize: '11px', border: '1px solid rgba(100, 238, 220, 0.2)', backgroundColor: 'rgba(100, 238, 220, 0.05)', borderRadius: '4px', color: 'var(--color-primary)', textDecoration: 'none', transition: 'all 0.2s ease' }} className="font-label-mono-sm subtopic-link-tag">
+                    <Link key={opt.slug} to={`/nlp?subtopic=${opt.slug}`} style={{ padding: '4px 10px', fontSize: '11px', border: '1px solid var(--color-primary-alpha-20)', backgroundColor: 'var(--color-primary-alpha-5)', borderRadius: '4px', color: 'var(--color-primary)', textDecoration: 'none', transition: 'all 0.2s ease' }} className="font-label-mono-sm subtopic-link-tag">
                       {opt.label}
                     </Link>
                   ))}
@@ -139,7 +139,7 @@ export default function Industries() {
                     { label: 'Risk Vector Scrubbing', slug: 'risk-vector-scrubbing' },
                     { label: 'Metadata Audit', slug: 'metadata-audit' }
                   ].map((opt) => (
-                    <Link key={opt.slug} to={`/content-moderation?subtopic=${opt.slug}`} style={{ padding: '4px 10px', fontSize: '11px', border: '1px solid rgba(100, 238, 220, 0.2)', backgroundColor: 'rgba(100, 238, 220, 0.05)', borderRadius: '4px', color: 'var(--color-primary)', textDecoration: 'none', transition: 'all 0.2s ease' }} className="font-label-mono-sm subtopic-link-tag">
+                    <Link key={opt.slug} to={`/content-moderation?subtopic=${opt.slug}`} style={{ padding: '4px 10px', fontSize: '11px', border: '1px solid var(--color-primary-alpha-20)', backgroundColor: 'var(--color-primary-alpha-5)', borderRadius: '4px', color: 'var(--color-primary)', textDecoration: 'none', transition: 'all 0.2s ease' }} className="font-label-mono-sm subtopic-link-tag">
                       {opt.label}
                     </Link>
                   ))}
@@ -169,7 +169,7 @@ export default function Industries() {
                     { label: 'Hierarchy Mapping', slug: 'hierarchy-mapping' },
                     { label: 'Data Schema Sync', slug: 'data-schema-sync' }
                   ].map((opt) => (
-                    <Link key={opt.slug} to={`/product-categorization?subtopic=${opt.slug}`} style={{ padding: '4px 10px', fontSize: '11px', border: '1px solid rgba(100, 238, 220, 0.2)', backgroundColor: 'rgba(100, 238, 220, 0.05)', borderRadius: '4px', color: 'var(--color-primary)', textDecoration: 'none', transition: 'all 0.2s ease' }} className="font-label-mono-sm subtopic-link-tag">
+                    <Link key={opt.slug} to={`/product-categorization?subtopic=${opt.slug}`} style={{ padding: '4px 10px', fontSize: '11px', border: '1px solid var(--color-primary-alpha-20)', backgroundColor: 'var(--color-primary-alpha-5)', borderRadius: '4px', color: 'var(--color-primary)', textDecoration: 'none', transition: 'all 0.2s ease' }} className="font-label-mono-sm subtopic-link-tag">
                       {opt.label}
                     </Link>
                   ))}
@@ -223,7 +223,7 @@ export default function Industries() {
       <section className="py-section-padding bg-surface-deep relative reveal" style={{ borderTop: '1px solid var(--color-border-muted)', borderBottom: '1px solid var(--color-border-muted)' }}>
         <div className="container grid md:grid-cols-2 gap-8 items-center relative z-10" style={{ gap: '64px' }}>
           <div className="flex flex-col gap-6" style={{ display: 'flex', flexDirection: 'column', gap: '32px' }}>
-            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '16px', padding: '8px 16px', backgroundColor: 'rgba(100, 238, 220, 0.1)', border: '1px solid rgba(100, 238, 220, 0.2)', borderRadius: '8px', alignSelf: 'flex-start' }}>
+            <div style={{ display: 'inline-flex', alignItems: 'center', gap: '16px', padding: '8px 16px', backgroundColor: 'var(--color-primary-alpha-10)', border: '1px solid var(--color-primary-alpha-20)', borderRadius: '8px', alignSelf: 'flex-start' }}>
               <span className="material-symbols-outlined text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>verified_user</span>
               <span className="font-label-mono-md text-primary" style={{ fontWeight: 'bold' }}>ISO 27001:2013 CERTIFIED</span>
             </div>
@@ -252,8 +252,8 @@ export default function Industries() {
           </div>
 
           <div className="flex justify-center items-center">
-            <div className="glass-card flex flex-col items-center justify-center text-center" style={{ width: '100%', maxWidth: '400px', aspectRatio: '1/1', borderRadius: '50%', border: '2px solid rgba(100, 238, 220, 0.2)', padding: '48px', gap: '24px' }}>
-              <div className="teal-glow" style={{ width: '96px', height: '96px', borderRadius: '50%', backgroundColor: 'rgba(100, 238, 220, 0.1)', border: '1px solid rgba(100, 238, 220, 0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div className="glass-card flex flex-col items-center justify-center text-center" style={{ width: '100%', maxWidth: '400px', aspectRatio: '1/1', borderRadius: '50%', border: '2px solid var(--color-primary-alpha-20)', padding: '48px', gap: '24px' }}>
+              <div className="teal-glow" style={{ width: '96px', height: '96px', borderRadius: '50%', backgroundColor: 'var(--color-primary-alpha-10)', border: '1px solid var(--color-primary-alpha-30)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                 <span className="material-symbols-outlined text-primary" style={{ fontSize: '48px', fontVariationSettings: "'FILL' 1" }}>lock_person</span>
               </div>
               <h3 className="font-headline-md text-white">Vaulted Intelligence</h3>
@@ -263,18 +263,6 @@ export default function Industries() {
         </div>
       </section>
 
-      {/* Footer CTA */}
-      <section className="py-section-padding text-center container reveal">
-        <div style={{ maxWidth: '768px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '32px' }}>
-          <h2 className="font-headline-lg text-white">Ready for Integration?</h2>
-          <p className="font-body-lg text-on-surface-variant">Deploy our proprietary technology stack across your enterprise ecosystem and unlock unprecedented operational clarity.</p>
-          <div className="flex flex-col items-center justify-center gap-6" style={{ flexDirection: 'row', alignItems: 'center' }}>
-            <button className="primary-button font-headline-md" style={{ padding: '20px 40px' }}>Get a Free Demo</button>
-            <span className="text-on-surface-variant font-label-mono-md">OR</span>
-            <a href="#" className="text-white font-label-mono-md" style={{ textDecoration: 'underline' }}>Review Documentation</a>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

@@ -5,7 +5,7 @@ export default function Footer() {
   const [hoveredLink, setHoveredLink] = useState(null);
 
   const getLinkStyle = (index) => ({
-    color: hoveredLink === index ? '#fff' : '#a1a1aa',
+    color: hoveredLink === index ? 'var(--color-on-surface)' : 'var(--color-on-surface-variant)',
     textDecoration: 'none',
     transition: 'color 0.3s ease, transform 0.3s ease',
     transform: hoveredLink === index ? 'translateX(5px)' : 'translateX(0)',
@@ -13,7 +13,7 @@ export default function Footer() {
   });
 
   return (
-    <footer className="border-t border-muted relative overflow-hidden" style={{ backgroundColor: '#09090b', borderTop: '1px solid rgba(255, 255, 255, 0.05)', padding: '100px 0 40px', color: '#fff', position: 'relative' }}>
+    <footer className="border-t border-muted relative overflow-hidden" style={{ backgroundColor: 'var(--color-background)', borderTop: '1px solid rgba(255, 255, 255, 0.05)', padding: '100px 0 40px', color: 'var(--color-on-surface)', position: 'relative' }}>
       
       {/* Background glow effects */}
       <div style={{ position: 'absolute', top: 0, left: '50%', transform: 'translateX(-50%)', width: '80%', height: '1px', background: 'radial-gradient(circle, rgba(99,102,241,0.8) 0%, rgba(0,0,0,0) 100%)', boxShadow: '0 0 60px 15px rgba(99,102,241,0.2)' }}></div>
@@ -30,7 +30,7 @@ export default function Footer() {
           <h2 className="font-headline-lg" style={{ marginBottom: '24px', background: 'linear-gradient(to right, #ffffff, #a1a1aa)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', fontSize: '3rem', fontWeight: '800', letterSpacing: '-0.02em' }}>
             Ready to Build the Future?
           </h2>
-          <p className="font-body-lg" style={{ maxWidth: '600px', marginBottom: '40px', color: '#a1a1aa', fontSize: '1.125rem', lineHeight: '1.6' }}>
+          <p className="font-body-lg" style={{ maxWidth: '600px', marginBottom: '40px', color: 'var(--color-on-surface-variant)', fontSize: '1.125rem', lineHeight: '1.6' }}>
             Transform your business with our state-of-the-art AI solutions. Let's discuss how Computer Vision and NLP can elevate your operations.
           </p>
           <Link to="/contact" className="primary-button" style={{ 
@@ -56,40 +56,40 @@ export default function Footer() {
         </div>
 
         {/* Links Grid */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '64px', marginBottom: '64px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '64px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '64px', marginBottom: '64px', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '64px', textAlign: 'center', justifyItems: 'center' }}>
           
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', gridColumn: '1 / -1' }} className="md:col-span-2">
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '24px' }}>
             <div className="font-headline-md uppercase tracking-widest" style={{ fontSize: '1.2rem', fontWeight: 'bold', letterSpacing: '0.1em' }}>
               <span style={{ color: '#818cf8' }}>Industrial Tech</span> Collective
             </div>
-            <p className="font-body-md" style={{ lineHeight: '1.6', color: '#a1a1aa', maxWidth: '400px' }}>
+            <p className="font-body-md" style={{ lineHeight: '1.6', color: 'var(--color-on-surface-variant)', maxWidth: '400px', textAlign: 'center' }}>
               Showcasing our cutting-edge AI projects and partnering with innovative clients to build next-generation solutions.
             </p>
-            <div className="flex gap-4" style={{ display: 'flex', gap: '20px', color: '#a1a1aa', marginTop: '8px' }}>
+            <div className="flex gap-4" style={{ display: 'flex', justifyContent: 'center', gap: '20px', color: 'var(--color-on-surface-variant)', marginTop: '8px' }}>
               {['public', 'share', 'monitoring'].map((icon, i) => (
                 <a key={icon} href="#" style={{ 
                   display: 'flex', alignItems: 'center', justifyContent: 'center', 
                   width: '40px', height: '40px', borderRadius: '50%', 
-                  backgroundColor: 'rgba(255,255,255,0.05)',
+                  backgroundColor: 'var(--color-border-muted)',
                   color: 'inherit', transition: 'all 0.3s ease' 
                 }} 
-                onMouseOver={(e) => { e.currentTarget.style.color = '#fff'; e.currentTarget.style.backgroundColor = 'rgba(99,102,241,0.2)'; e.currentTarget.style.transform = 'translateY(-3px)'; }} 
-                onMouseOut={(e) => { e.currentTarget.style.color = '#a1a1aa'; e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.05)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
+                onMouseOver={(e) => { e.currentTarget.style.color = 'var(--color-on-surface)'; e.currentTarget.style.backgroundColor = 'rgba(99,102,241,0.2)'; e.currentTarget.style.transform = 'translateY(-3px)'; }} 
+                onMouseOut={(e) => { e.currentTarget.style.color = 'var(--color-on-surface-variant)'; e.currentTarget.style.backgroundColor = 'var(--color-border-muted)'; e.currentTarget.style.transform = 'translateY(0)'; }}>
                   <span className="material-symbols-outlined" style={{ fontSize: '20px' }}>{icon}</span>
                 </a>
               ))}
             </div>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <h4 style={{ fontWeight: '600', letterSpacing: '0.05em', textTransform: 'uppercase', fontSize: '0.875rem', color: '#fff', marginBottom: '8px' }}>Expertise</h4>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
+            <h4 style={{ fontWeight: '600', letterSpacing: '0.05em', textTransform: 'uppercase', fontSize: '0.875rem', color: 'var(--color-on-surface)', marginBottom: '8px' }}>Expertise</h4>
             <Link to="/computer-vision" style={getLinkStyle('cv')} onMouseEnter={() => setHoveredLink('cv')} onMouseLeave={() => setHoveredLink(null)}>Computer Vision</Link>
             <Link to="/nlp" style={getLinkStyle('nlp')} onMouseEnter={() => setHoveredLink('nlp')} onMouseLeave={() => setHoveredLink(null)}>NLP Frameworks</Link>
             <Link to="/categorization" style={getLinkStyle('cat')} onMouseEnter={() => setHoveredLink('cat')} onMouseLeave={() => setHoveredLink(null)}>Product Categorization</Link>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-            <h4 style={{ fontWeight: '600', letterSpacing: '0.05em', textTransform: 'uppercase', fontSize: '0.875rem', color: '#fff', marginBottom: '8px' }}>Company</h4>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '20px' }}>
+            <h4 style={{ fontWeight: '600', letterSpacing: '0.05em', textTransform: 'uppercase', fontSize: '0.875rem', color: 'var(--color-on-surface)', marginBottom: '8px' }}>Company</h4>
             <Link to="/#projects-showcase" style={getLinkStyle('proj')} onMouseEnter={() => setHoveredLink('proj')} onMouseLeave={() => setHoveredLink(null)}>Our Projects</Link>
             <Link to="/contact" style={getLinkStyle('contact')} onMouseEnter={() => setHoveredLink('contact')} onMouseLeave={() => setHoveredLink(null)}>Contact Us</Link>
             <a href="#" style={getLinkStyle('careers')} onMouseEnter={() => setHoveredLink('careers')} onMouseLeave={() => setHoveredLink(null)}>Careers <span style={{ fontSize: '0.7rem', padding: '2px 6px', backgroundColor: 'rgba(99,102,241,0.2)', color: '#818cf8', borderRadius: '10px', marginLeft: '6px', verticalAlign: 'middle' }}>Hiring</span></a>
@@ -97,9 +97,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '32px', gap: '16px' }}>
-          <p className="font-label-mono-sm" style={{ color: '#71717a' }}>© {new Date().getFullYear()} Industrial Tech Collective. ISO 27001 Certified.</p>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '24px', alignItems: 'center' }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', borderTop: '1px solid rgba(255,255,255,0.05)', paddingTop: '32px', gap: '32px', textAlign: 'center' }}>
+          <p className="font-label-mono-sm" style={{ color: '#71717a', textAlign: 'center' }}>© {new Date().getFullYear()} Industrial Tech Collective. ISO 27001 Certified.</p>
+          <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '24px', alignItems: 'center' }}>
             {['Privacy Policy', 'Compliance', 'SOC2 Report', 'Security', 'Terms of Service'].map((link) => (
               <a key={link} href="#" className="font-label-mono-sm" style={{ color: '#71717a', textDecoration: 'none', transition: 'color 0.2s ease' }} onMouseOver={(e) => e.currentTarget.style.color = '#d4d4d8'} onMouseOut={(e) => e.currentTarget.style.color = '#71717a'}>{link}</a>
             ))}

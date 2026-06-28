@@ -10,7 +10,15 @@ import ContentModeration from './pages/ContentModeration';
 import ProductCategorization from './pages/ProductCategorization';
 import DataAnnotation from './pages/DataAnnotation';
 import Contact from './pages/Contact';
+import Careers from './pages/Careers';
 import BackgroundShader from './components/BackgroundShader';
+import CtaSection from './components/CtaSection';
+
+import AdminLayout from './components/admin/AdminLayout';
+import AdminDashboard from './pages/admin/AdminDashboard';
+import AdminMessages from './pages/admin/AdminMessages';
+import AdminUsers from './pages/admin/AdminUsers';
+import AdminSettings from './pages/admin/AdminSettings';
 
 function ScrollRevealManager() {
   const location = useLocation();
@@ -43,28 +51,52 @@ function ScrollRevealManager() {
   return null;
 }
 
+function PublicLayout({ children }) {
+  return (
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <BackgroundShader />
+      <Navbar />
+      <main style={{ flex: 1, paddingTop: '64px' }}>
+        {children}
+      </main>
+      <CtaSection />
+      <Footer />
+    </div>
+  );
+}
+
 function App() {
   return (
     <Router>
       <ScrollRevealManager />
-      <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-        <BackgroundShader />
-        <Navbar />
-        <main style={{ flex: 1, paddingTop: '64px' }}>
-          <Routes>
-            <Route path="/" element={<Industries />} />
-            <Route path="/solutions" element={<Solutions />} />
-            <Route path="/computer-vision" element={<ComputerVision />} />
-            <Route path="/nlp" element={<NLP />} />
-            <Route path="/content-moderation" element={<ContentModeration />} />
-            <Route path="/product-categorization" element={<ProductCategorization />} />
-            <Route path="/data-annotation" element={<DataAnnotation />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<Industries />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <Routes>
+        {/* Admin Routes */}
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminDashboard />} />
+          <Route path="messages" element={<AdminMessages />} />
+          <Route path="users" element={<AdminUsers />} />
+          <Route path="settings" element={<AdminSettings />} />
+          <Route path="*" element={<AdminDashboard />} />
+        </Route>
+
+        {/* Public Routes */}
+        <Route path="*" element={
+          <PublicLayout>
+            <Routes>
+              <Route path="/" element={<Industries />} />
+              <Route path="/solutions" element={<Solutions />} />
+              <Route path="/computer-vision" element={<ComputerVision />} />
+              <Route path="/nlp" element={<NLP />} />
+              <Route path="/content-moderation" element={<ContentModeration />} />
+              <Route path="/product-categorization" element={<ProductCategorization />} />
+              <Route path="/data-annotation" element={<DataAnnotation />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/careers" element={<Careers />} />
+              <Route path="*" element={<Industries />} />
+            </Routes>
+          </PublicLayout>
+        } />
+      </Routes>
     </Router>
   );
 }

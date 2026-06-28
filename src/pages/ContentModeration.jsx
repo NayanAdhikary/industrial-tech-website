@@ -82,7 +82,7 @@ export default function ContentModeration() {
                     overflow: 'hidden',
                     padding: 0,
                     border: isHighlighted ? '2px solid var(--color-primary)' : '1px solid var(--color-border-muted)',
-                    boxShadow: isHighlighted ? '0 0 25px rgba(100, 238, 220, 0.35)' : 'none',
+                    boxShadow: isHighlighted ? '0 0 25px var(--color-primary-alpha-30)' : 'none',
                     transition: 'all 0.5s ease'
                   }}
                 >

@@ -54,11 +54,11 @@ export default function ComputerVision() {
       <section className="relative flex flex-col items-center justify-center overflow-hidden reveal" style={{ minHeight: '600px', borderBottom: '1px solid rgba(255, 255, 255, 0.05)', padding: '120px 0 60px' }}>
         <HeroCore3D />
         <div className="container relative z-10 text-center flex flex-col items-center gap-6" style={{ maxWidth: '800px' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '4px 12px', backgroundColor: 'rgba(100, 238, 220, 0.1)', border: '1px solid rgba(100, 238, 220, 0.2)', borderRadius: '9999px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '4px 12px', backgroundColor: 'var(--color-primary-alpha-10)', border: '1px solid var(--color-primary-alpha-20)', borderRadius: '9999px' }}>
             <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--color-primary)' }} className="animate-pulse"></span>
             <span className="font-label-mono-sm text-primary uppercase tracking-widest">Service Operational</span>
           </div>
-          <h1 className="font-display-lg text-white" style={{ textShadow: '0 0 15px rgba(100, 238, 220, 0.4)' }}>
+          <h1 className="font-display-lg text-white" style={{ textShadow: '0 0 15px var(--color-primary-alpha-40)' }}>
             Computer Vision Systems
           </h1>
           <p className="font-body-md text-on-surface-variant max-w-xl mx-auto">
@@ -88,7 +88,7 @@ export default function ComputerVision() {
                   overflow: 'hidden',
                   padding: 0,
                   border: isHighlighted ? '2px solid var(--color-primary)' : '1px solid var(--color-border-muted)',
-                  boxShadow: isHighlighted ? '0 0 25px rgba(100, 238, 220, 0.35)' : 'none',
+                  boxShadow: isHighlighted ? '0 0 25px var(--color-primary-alpha-30)' : 'none',
                   transition: 'all 0.5s ease'
                 }}
               >
@@ -130,8 +130,8 @@ export default function ComputerVision() {
             <h3 className="font-headline-lg mb-4 text-white">Semantic Segmentation</h3>
             <p className="text-on-surface-variant mb-6">Pixel-perfect classification for every element in the frame. We achieve 99.8% precision on complex industrial textures and materials.</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-              <div style={{ width: '100%', backgroundColor: 'rgba(255,255,255,0.05)', height: '8px', borderRadius: '4px', overflow: 'hidden' }}>
-                <div style={{ backgroundColor: 'var(--color-primary)', height: '100%', width: '99.8%', boxShadow: '0 0 10px rgba(100,238,220,0.5)' }}></div>
+              <div style={{ width: '100%', backgroundColor: 'var(--color-border-muted)', height: '8px', borderRadius: '4px', overflow: 'hidden' }}>
+                <div style={{ backgroundColor: 'var(--color-primary)', height: '100%', width: '99.8%', boxShadow: '0 0 10px var(--color-primary-alpha-50)' }}></div>
               </div>
               <div className="flex justify-between font-label-mono-sm text-primary">
                 <span>PRECISION SCALE</span>
@@ -162,7 +162,7 @@ export default function ComputerVision() {
               <h2 className="font-display-lg text-white">Security & Integrity Without Compromise</h2>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
                 <div className="flex gap-4">
-                  <div style={{ width: '48px', height: '48px', borderRadius: '4px', backgroundColor: 'rgba(100,238,220,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div style={{ width: '48px', height: '48px', borderRadius: '4px', backgroundColor: 'var(--color-primary-alpha-10)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <span className="material-symbols-outlined text-primary">verified_user</span>
                   </div>
                   <div>
@@ -171,7 +171,7 @@ export default function ComputerVision() {
                   </div>
                 </div>
                 <div className="flex gap-4">
-                  <div style={{ width: '48px', height: '48px', borderRadius: '4px', backgroundColor: 'rgba(100,238,220,0.1)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div style={{ width: '48px', height: '48px', borderRadius: '4px', backgroundColor: 'var(--color-primary-alpha-10)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <span className="material-symbols-outlined text-primary">lock</span>
                   </div>
                   <div>
@@ -199,7 +199,7 @@ export default function ComputerVision() {
                   <div className="text-on-surface-variant">{'>'} NODE 4A2-99 VERIFIED VIA BIOMETRIC TOKEN</div>
                   <div className="flex items-center gap-2">
                     <span className="text-on-surface-variant">{'>'} DATA ENCRYPTION STATUS:</span>
-                    <span style={{ padding: '4px 8px', backgroundColor: 'rgba(100,238,220,0.2)', color: 'var(--color-primary)', border: '1px solid rgba(100,238,220,0.3)', borderRadius: '4px' }}>SECURE</span>
+                    <span style={{ padding: '4px 8px', backgroundColor: 'var(--color-primary-alpha-20)', color: 'var(--color-primary)', border: '1px solid var(--color-primary-alpha-30)', borderRadius: '4px' }}>SECURE</span>
                   </div>
                 </div>
               </div>

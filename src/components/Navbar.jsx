@@ -8,6 +8,7 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Industries', path: '/' },
     { name: 'Solutions', path: '/solutions' },
+    { name: 'Careers', path: '/careers' },
   ];
 
   const domainLinks = [
@@ -19,9 +20,9 @@ export default function Navbar() {
   ];
 
   return (
-    <nav style={{ position: 'fixed', top: 0, width: '100%', height: '64px', backgroundColor: 'rgba(19, 19, 19, 0.7)', backdropFilter: 'blur(20px)', borderBottom: '1px solid var(--color-border-muted)', display: 'flex', alignItems: 'center', zIndex: 100 }}>
+    <nav style={{ position: 'fixed', top: 0, width: '100%', height: '64px', backgroundColor: 'var(--color-surface)', backdropFilter: 'blur(20px)', borderBottom: '1px solid var(--color-border-muted)', display: 'flex', alignItems: 'center', zIndex: 100 }}>
       <div style={{ width: '100%', maxWidth: '1280px', margin: '0 auto', padding: '0 24px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <Link to="/" className="font-headline-md uppercase tracking-widest text-white" style={{ fontSize: '20px', letterSpacing: '0.05em', textDecoration: 'none' }}>
+        <Link to="/" className="font-headline-md uppercase tracking-widest text-white" style={{ fontSize: '20px', letterSpacing: '0.05em', textDecoration: 'none', color: 'var(--color-on-surface)' }}>
           Industrial Tech Collective
         </Link>
         <div style={{ display: 'flex', gap: '32px', alignItems: 'center' }}>
@@ -66,15 +67,15 @@ export default function Navbar() {
             >
               <div style={{
                 width: '260px', 
-                backgroundColor: 'rgba(19, 19, 19, 0.9)', 
+                backgroundColor: 'var(--color-surface)', 
                 backdropFilter: 'blur(24px)',
-                border: '1px solid rgba(100, 238, 220, 0.15)', 
+                border: '1px solid var(--color-border-muted)', 
                 borderRadius: '8px', 
                 padding: '8px', 
-                boxShadow: '0 10px 40px -10px rgba(0,0,0,0.8)',
+                boxShadow: '0 10px 40px -10px var(--color-surface)',
                 position: 'relative'
               }}>
-                <div style={{ position: 'absolute', top: '-6px', left: '50%', transform: 'translateX(-50%) rotate(45deg)', width: '12px', height: '12px', backgroundColor: 'rgba(19, 19, 19, 0.9)', borderLeft: '1px solid rgba(100, 238, 220, 0.15)', borderTop: '1px solid rgba(100, 238, 220, 0.15)' }}></div>
+                <div style={{ position: 'absolute', top: '-6px', left: '50%', transform: 'translateX(-50%) rotate(45deg)', width: '12px', height: '12px', backgroundColor: 'var(--color-surface)', borderLeft: '1px solid var(--color-border-muted)', borderTop: '1px solid var(--color-border-muted)' }}></div>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '2px', position: 'relative', zIndex: 10 }}>
                   {domainLinks.map((link) => (
                     <Link
@@ -91,18 +92,18 @@ export default function Navbar() {
                         transition: 'all 0.2s ease'
                       }}
                       onMouseEnter={(e) => { 
-                        e.currentTarget.style.backgroundColor = 'rgba(100, 238, 220, 0.1)'; 
+                        e.currentTarget.style.backgroundColor = 'var(--color-teal-glow)'; 
                         e.currentTarget.style.color = 'var(--color-primary)';
                         e.currentTarget.children[0].style.backgroundColor = 'var(--color-primary)';
                       }}
                       onMouseLeave={(e) => { 
                         e.currentTarget.style.backgroundColor = 'transparent'; 
                         e.currentTarget.style.color = 'var(--color-on-surface-variant)';
-                        e.currentTarget.children[0].style.backgroundColor = 'rgba(100, 238, 220, 0.2)';
+                        e.currentTarget.children[0].style.backgroundColor = 'var(--color-border-muted)';
                       }}
                       onClick={() => setIsDropdownOpen(false)}
                     >
-                      <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'rgba(100, 238, 220, 0.2)', transition: 'background-color 0.2s ease' }}></span>
+                      <span style={{ width: '6px', height: '6px', borderRadius: '50%', backgroundColor: 'var(--color-border-muted)', transition: 'background-color 0.2s ease' }}></span>
                       {link.name}
                     </Link>
                   ))}
@@ -111,11 +112,13 @@ export default function Navbar() {
             </div>
           </div>
         </div>
-        <Link to="/contact">
-          <button className="primary-button" style={{ padding: '8px 16px', fontSize: '14px', borderRadius: '4px', cursor: 'pointer' }}>
-            Contact Us
-          </button>
-        </Link>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <Link to="/contact">
+            <button className="primary-button" style={{ padding: '8px 16px', fontSize: '14px', borderRadius: '4px', cursor: 'pointer' }}>
+              Contact Us
+            </button>
+          </Link>
+        </div>
       </div>
     </nav>
   );

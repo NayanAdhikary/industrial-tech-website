@@ -108,7 +108,7 @@ export default function ProductCategorization() {
                     overflow: 'hidden',
                     padding: 0,
                     border: isHighlighted ? '2px solid var(--color-primary)' : '1px solid var(--color-border-muted)',
-                    boxShadow: isHighlighted ? '0 0 25px rgba(100, 238, 220, 0.35)' : 'none',
+                    boxShadow: isHighlighted ? '0 0 25px var(--color-primary-alpha-30)' : 'none',
                     transition: 'all 0.5s ease'
                   }}
                 >
@@ -180,7 +180,7 @@ export default function ProductCategorization() {
                     <h4 className="font-label-xs text-primary mb-2 uppercase">Classification Accuracy</h4>
                     <div className="text-3xl font-bold text-white mb-2">99.982%</div>
                     <div className="w-full bg-surface-container-high h-1">
-                      <div className="bg-primary h-full w-[99%] shadow-[0_0_10px_rgba(100,238,220,0.5)]"></div>
+                      <div className="bg-primary h-full w-[99%] shadow-[0_0_10px_var(--color-primary-alpha-50)]"></div>
                     </div>
                   </div>
                 </div>

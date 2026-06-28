@@ -64,7 +64,7 @@ export default function DataAnnotation() {
         <HeroCore3D />
         
         <div className="container relative z-10 text-center" style={{ maxWidth: '896px', display: 'flex', flexDirection: 'column', gap: '24px', alignItems: 'center' }}>
-          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '4px 12px', backgroundColor: 'rgba(100, 238, 220, 0.1)', border: '1px solid rgba(100, 238, 220, 0.2)', borderRadius: '9999px' }}>
+          <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '4px 12px', backgroundColor: 'var(--color-primary-alpha-10)', border: '1px solid var(--color-primary-alpha-20)', borderRadius: '9999px' }}>
             <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: 'var(--color-primary)' }} className="animate-pulse"></span>
             <span className="font-label-mono-sm text-primary uppercase tracking-widest" style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '12px' }}>System Status: Optimal</span>
           </div>
@@ -78,7 +78,7 @@ export default function DataAnnotation() {
           </p>
           
           <div className="flex gap-4 pt-4 justify-center" style={{ marginTop: '32px' }}>
-            <button className="primary-button font-headline-md" style={{ color: '#000', fontFamily: 'var(--font-geist)', cursor: 'pointer', boxShadow: '0 0 20px rgba(100, 238, 220, 0.3)' }}>
+            <button className="primary-button font-headline-md" style={{ color: 'var(--color-on-primary)', fontFamily: 'var(--font-geist)', cursor: 'pointer', boxShadow: '0 0 20px var(--color-primary-alpha-30)' }}>
               Initiate Project
               <span className="material-symbols-outlined text-lg">bolt</span>
             </button>
@@ -95,19 +95,19 @@ export default function DataAnnotation() {
           <FadeIn>
             <div style={{ display: 'flex', justifyContent: 'space-around', alignItems: 'center', flexWrap: 'wrap', gap: '32px' }}>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', textAlign: 'center', minWidth: '160px' }}>
-                <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '42px', fontWeight: 'bold', color: 'var(--color-primary)', textShadow: '0 0 10px rgba(100,238,220,0.3)' }}>{accuracyVal}%</div>
+                <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '42px', fontWeight: 'bold', color: 'var(--color-primary)', textShadow: '0 0 10px var(--color-primary-alpha-30)' }}>{accuracyVal}%</div>
                 <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '11px', color: 'var(--color-on-surface-variant)', tracking: '0.1em', textTransform: 'uppercase' }}>Label Accuracy</div>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', textAlign: 'center', minWidth: '160px' }}>
-                <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '42px', fontWeight: 'bold', color: 'var(--color-primary)', textShadow: '0 0 10px rgba(100,238,220,0.3)' }}>{assetsVal}K+</div>
+                <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '42px', fontWeight: 'bold', color: 'var(--color-primary)', textShadow: '0 0 10px var(--color-primary-alpha-30)' }}>{assetsVal}K+</div>
                 <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '11px', color: 'var(--color-on-surface-variant)', tracking: '0.1em', textTransform: 'uppercase' }}>Annotated Assets</div>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', textAlign: 'center', minWidth: '160px' }}>
-                <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '42px', fontWeight: 'bold', color: 'var(--color-primary)', textShadow: '0 0 10px rgba(100,238,220,0.3)' }}>{deployVal}+</div>
+                <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '42px', fontWeight: 'bold', color: 'var(--color-primary)', textShadow: '0 0 10px var(--color-primary-alpha-30)' }}>{deployVal}+</div>
                 <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '11px', color: 'var(--color-on-surface-variant)', tracking: '0.1em', textTransform: 'uppercase' }}>Global Deployments</div>
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', textAlign: 'center', minWidth: '160px' }}>
-                <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '42px', fontWeight: 'bold', color: 'var(--color-primary)', textShadow: '0 0 10px rgba(100,238,220,0.3)' }}>24/7</div>
+                <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '42px', fontWeight: 'bold', color: 'var(--color-primary)', textShadow: '0 0 10px var(--color-primary-alpha-30)' }}>24/7</div>
                 <div style={{ fontFamily: 'var(--font-jetbrains)', fontSize: '11px', color: 'var(--color-on-surface-variant)', tracking: '0.1em', textTransform: 'uppercase' }}>Mission Support</div>
               </div>
             </div>
@@ -181,7 +181,7 @@ export default function DataAnnotation() {
             </div>
 
             {/* Service 6 */}
-            <div className="glass-card" style={{ padding: '32px', border: '1px solid rgba(100, 238, 220, 0.3)', transition: 'all 0.4s ease' }}>
+            <div className="glass-card" style={{ padding: '32px', border: '1px solid var(--color-primary-alpha-30)', transition: 'all 0.4s ease' }}>
               <span className="material-symbols-outlined text-primary mb-6" style={{ fontSize: '40px' }}>settings_suggest</span>
               <h3 className="font-headline-md text-white mb-4" style={{ fontFamily: 'var(--font-geist)' }}>Custom Solutions</h3>
               <p className="font-body-md text-on-surface-variant mb-6" style={{ fontFamily: 'var(--font-geist)' }}>
@@ -213,7 +213,7 @@ export default function DataAnnotation() {
             </div>
 
             <div style={{ maxWidth: '960px', margin: '0 auto', position: 'relative' }}>
-              <div style={{ position: 'absolute', inset: 0, backgroundColor: 'rgba(100, 238, 220, 0.1)', filter: 'blur(40px)', transform: 'scale(0.8)', zIndex: 0 }} className="animate-pulse"></div>
+              <div style={{ position: 'absolute', inset: 0, backgroundColor: 'var(--color-primary-alpha-10)', filter: 'blur(40px)', transform: 'scale(0.8)', zIndex: 0 }} className="animate-pulse"></div>
               <div className="glass-card" style={{ padding: 0, overflow: 'hidden', position: 'relative', zIndex: 1 }}>
                 <div className="scanning-line"></div>
                 <img style={{ width: '100%', height: 'auto', display: 'block', opacity: 0.7 }} src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2mVJ5blaUqNgXHFa0XqKItRPnnU4BDIAPdtpPN1-kLO_6JYZpohm4GrDqesSZWxLUUdQvpjJgmJZu8L5uLs_RfQYa-f_sygVPAtA2quGHEH09qLNJwhz6EAAE0Y6nFAke98T8NOuS8t119j7mF7m-iS6YFYvuRihzP5Ad7BWHkv9WIc4FIuzn9K8DPdbfyrj5m6KyNScnPI3rL_lJ6k5SxNii2v1qE0t-lufoacPv5GBjs8kn2LOx4dhSZ_gy0aiGBkUoDLrxrjF8" alt="Data Annotation Core Showcase" />
@@ -234,7 +234,7 @@ export default function DataAnnotation() {
                         height: box.height,
                         border: `2px solid ${box.color}`,
                         boxShadow: isHovered ? `0 0 15px ${box.color}` : 'none',
-                        backgroundColor: isHovered ? 'rgba(100, 238, 220, 0.05)' : 'transparent',
+                        backgroundColor: isHovered ? 'var(--color-primary-alpha-5)' : 'transparent',
                         cursor: 'crosshair',
                         transition: 'all 0.3s ease',
                         zIndex: 10
@@ -247,7 +247,7 @@ export default function DataAnnotation() {
                           top: '-20px',
                           left: '-2px',
                           backgroundColor: box.color,
-                          color: '#000',
+                          color: 'var(--color-on-primary)',
                           padding: '2px 6px',
                           fontSize: '10px',
                           fontFamily: 'var(--font-jetbrains)',
@@ -266,8 +266,8 @@ export default function DataAnnotation() {
                 })}
 
                 <div style={{ position: 'absolute', bottom: '24px', right: '24px', display: 'flex', gap: '16px', fontFamily: 'var(--font-jetbrains)', fontSize: '12px' }}>
-                  <span style={{ backgroundColor: 'rgba(0,0,0,0.7)', padding: '6px 12px', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '4px', color: '#fff' }}>FPS: 60.0</span>
-                  <span style={{ backgroundColor: 'rgba(0,0,0,0.7)', padding: '6px 12px', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '4px', color: 'var(--color-primary)' }}>IOU: 0.94</span>
+                  <span style={{ backgroundColor: 'var(--color-surface)', padding: '6px 12px', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '4px', color: 'var(--color-on-surface)' }}>FPS: 60.0</span>
+                  <span style={{ backgroundColor: 'var(--color-surface)', padding: '6px 12px', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '4px', color: 'var(--color-primary)' }}>IOU: 0.94</span>
                 </div>
               </div>
             </div>
@@ -357,7 +357,7 @@ export default function DataAnnotation() {
               <div style={{ position: 'relative' }}>
                 <div className="glass-card" style={{ padding: 0, overflow: 'hidden', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '360px', backgroundColor: 'rgba(100, 238, 220, 0.03)' }}>
                   <img src={systemArchImg} alt="System Architecture Diagram" style={{ width: '100%', height: '100%', objectFit: 'cover', minHeight: '360px', opacity: 0.8 }} />
-                  <div className="font-label-mono-sm text-primary tracking-wider" style={{ position: 'absolute', bottom: '16px', left: '16px', backgroundColor: 'rgba(0, 0, 0, 0.7)', padding: '6px 12px', borderRadius: '4px', border: '1px solid rgba(100, 238, 220, 0.3)', fontFamily: 'var(--font-jetbrains)', fontSize: '11px' }}>SYSTEM ARCHITECTURE: V4.2.0</div>
+                  <div className="font-label-mono-sm text-primary tracking-wider" style={{ position: 'absolute', bottom: '16px', left: '16px', backgroundColor: 'var(--color-surface)', padding: '6px 12px', borderRadius: '4px', border: '1px solid var(--color-primary-alpha-30)', fontFamily: 'var(--font-jetbrains)', fontSize: '11px' }}>SYSTEM ARCHITECTURE: V4.2.0</div>
                 </div>
               </div>
             </div>
@@ -418,8 +418,8 @@ export default function DataAnnotation() {
         <FadeIn>
           <h2 className="font-headline-lg text-white mb-12 text-center" style={{ fontFamily: 'var(--font-geist)' }}>Frequently Asked Specs</h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            <details style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', overflow: 'hidden' }}>
-              <summary style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '24px', cursor: 'pointer', color: '#fff', fontWeight: '600', fontFamily: 'var(--font-geist)' }} className="text-base">
+            <details style={{ background: 'var(--color-surface-container)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', overflow: 'hidden' }}>
+              <summary style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '24px', cursor: 'pointer', color: 'var(--color-on-surface)', fontWeight: '600', fontFamily: 'var(--font-geist)' }} className="text-base">
                 <span>What is your standard turnaround time?</span>
                 <span className="material-symbols-outlined">expand_more</span>
               </summary>
@@ -428,8 +428,8 @@ export default function DataAnnotation() {
               </div>
             </details>
 
-            <details style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', overflow: 'hidden' }}>
-              <summary style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '24px', cursor: 'pointer', color: '#fff', fontWeight: '600', fontFamily: 'var(--font-geist)' }} className="text-base">
+            <details style={{ background: 'var(--color-surface-container)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', overflow: 'hidden' }}>
+              <summary style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '24px', cursor: 'pointer', color: 'var(--color-on-surface)', fontWeight: '600', fontFamily: 'var(--font-geist)' }} className="text-base">
                 <span>How do you ensure label consistency?</span>
                 <span className="material-symbols-outlined">expand_more</span>
               </summary>
@@ -438,8 +438,8 @@ export default function DataAnnotation() {
               </div>
             </details>
 
-            <details style={{ background: 'rgba(255,255,255,0.03)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', overflow: 'hidden' }}>
-              <summary style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '24px', cursor: 'pointer', color: '#fff', fontWeight: '600', fontFamily: 'var(--font-geist)' }} className="text-base">
+            <details style={{ background: 'var(--color-surface-container)', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px', overflow: 'hidden' }}>
+              <summary style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '24px', cursor: 'pointer', color: 'var(--color-on-surface)', fontWeight: '600', fontFamily: 'var(--font-geist)' }} className="text-base">
                 <span>Can you work with proprietary data platforms?</span>
                 <span className="material-symbols-outlined">expand_more</span>
               </summary>
@@ -455,14 +455,14 @@ export default function DataAnnotation() {
       <section style={{ padding: '100px 0' }} className="px-margin-edge">
         <FadeIn>
           <div className="container relative overflow-hidden rounded-xl border border-primary/20" style={{ padding: 0 }}>
-            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(100, 238, 220, 0.15), transparent)', zIndex: 0 }}></div>
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, var(--color-teal-glow), transparent)', zIndex: 0 }}></div>
             <div className="glass-card relative z-10 flex flex-col md:flex-row items-center justify-between gap-8" style={{ padding: '64px', border: 'none' }}>
               <div className="text-center md:text-left">
                 <h2 className="font-headline-lg text-white mb-4" style={{ fontFamily: 'var(--font-geist)' }}>Ready to Train Smarter AI Models?</h2>
                 <p className="font-body-md text-on-surface-variant" style={{ fontFamily: 'var(--font-geist)' }}>Connect with our solutions architects to build a high-fidelity data pipeline today.</p>
               </div>
               <div className="flex gap-4">
-                <button className="primary-button font-label-mono-md" style={{ color: '#000', fontFamily: 'var(--font-jetbrains)', cursor: 'pointer' }}>Get Free Quote</button>
+                <button className="primary-button font-label-mono-md" style={{ color: 'var(--color-on-primary)', fontFamily: 'var(--font-jetbrains)', cursor: 'pointer' }}>Get Free Quote</button>
                 <button className="secondary-button font-label-mono-md" style={{ fontFamily: 'var(--font-jetbrains)', cursor: 'pointer' }}>View Case Studies</button>
               </div>
             </div>
